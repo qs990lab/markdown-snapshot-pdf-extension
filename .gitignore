@@ -91,3 +91,5 @@ test/*.pdf
 
 # Sample files and drafts
 sample/
+
+check/
