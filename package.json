@@ -13,12 +13,12 @@
   "icon": "icon.png",
   "repository": {
     "type": "git",
-    "url": "https://github.com/cloud-innovation-dev/markdown-mermaid-pdf-extension.git"
+    "url": "https://github.com/qs990lab/markdown-snapshot-pdf-extension.git"
   },
   "bugs": {
-    "url": "https://github.com/cloud-innovation-dev/markdown-mermaid-pdf-extension/issues"
+    "url": "https://github.com/qs990lab/markdown-snapshot-pdf-extension/issues"
   },
-  "homepage": "https://github.com/cloud-innovation-dev/markdown-mermaid-pdf-extension#readme",
+  "homepage": "https://github.com/qs990lab/markdown-snapshot-pdf-extension#readme",
   "activationEvents": [
     "onLanguage:markdown"
   ],
