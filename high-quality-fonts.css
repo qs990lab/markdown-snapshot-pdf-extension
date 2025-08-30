@@ -1,0 +1,226 @@
+/* High-Quality Font Configuration for PDF Generation */
+
+/* Import high-quality web fonts - ゴシック体のみ */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+
+/* Font face declarations for offline fallback */
+@font-face {
+    font-family: 'Noto Sans JP Fallback';
+    src: local('Hiragino Sans'), local('Hiragino Kaku Gothic ProN'), local('Yu Gothic UI'), local('Meiryo UI');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Noto Serif JP Fallback';
+    src: local('Yu Mincho'), local('Hiragino Mincho ProN'), local('Times New Roman');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'JetBrains Mono Fallback';
+    src: local('SF Mono'), local('Menlo'), local('Consolas'), local('Monaco');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Chinese font face with unicode-range - SC priority */
+@font-face {
+    font-family: 'Chinese Unified';
+    src: local('Noto Sans SC'), local('Source Han Sans SC'), local('PingFang SC'), local('Microsoft YaHei UI'), local('Microsoft YaHei');
+    unicode-range: U+4E00-9FFF, U+3400-4DBF, U+20000-2A6DF, U+2A700-2B73F, U+2B740-2B81F, U+2B820-2CEAF, U+F900-FAFF, U+2F800-2FA1F;
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Chinese font face for code blocks - force SC variant */
+@font-face {
+    font-family: 'Chinese Code';
+    src: local('Noto Sans SC'), local('Source Han Sans SC'), local('PingFang SC'), local('Microsoft YaHei UI');
+    unicode-range: U+4E00-9FFF, U+3400-4DBF, U+F900-FAFF;
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Japanese font face with unicode-range */
+@font-face {
+    font-family: 'Japanese Unified';
+    src: local('Noto Sans JP'), local('Hiragino Sans'), local('Hiragino Kaku Gothic ProN'), local('Yu Gothic UI'), local('Meiryo UI');
+    unicode-range: U+3040-309F, U+30A0-30FF, U+31F0-31FF, U+3200-32FF, U+3300-33FF, U+FF00-FFEF;
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Root font configuration - ゴシック体に統一 */
+:root {
+    --font-sans: 'Noto Sans JP', 'Japanese Unified', 'Noto Sans JP Fallback', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic UI', 'Meiryo UI', sans-serif;
+    --font-serif: 'Noto Sans JP', 'Japanese Unified', 'Noto Sans JP Fallback', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic UI', 'Meiryo UI', sans-serif;
+    --font-mono: 'JetBrains Mono', 'JetBrains Mono Fallback', 'SF Mono', 'Menlo', 'Consolas', 'Monaco', 'Courier New', monospace;
+    --font-cjk-sc: 'Chinese Unified', 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    --font-cjk-kr: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+}
+
+/* Enhanced font rendering */
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "kern" 1, "liga" 1;
+    font-variant-ligatures: common-ligatures;
+}
+
+/* Body font configuration with CJK character detection */
+body {
+    font-family: var(--font-sans), var(--font-cjk-sc);
+    font-weight: 400;
+    letter-spacing: 0.01em;
+}
+
+/* Universal font stack with Chinese priority for CJK documents */
+* {
+    font-family: inherit;
+}
+
+/* Heading font configuration - ゴシック体に統一 */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+}
+
+/* Code font configuration */
+code, pre, kbd, samp, tt {
+    font-family: 'Chinese Code', var(--font-mono) !important;
+    font-feature-settings: "liga" 1, "calt" 1;
+    font-variant-ligatures: common-ligatures;
+}
+
+/* Force Chinese SC font in code blocks */
+pre, code {
+    font-family: 'Chinese Code', 'Noto Sans SC', 'Source Han Sans SC', 'JetBrains Mono', monospace !important;
+}
+
+/* All text inside code blocks */
+pre *, code * {
+    font-family: inherit !important;
+}
+
+/* Language-specific font optimization */
+:lang(ja) {
+    font-family: var(--font-sans);
+    line-height: 1.8;
+    letter-spacing: 0.02em;
+}
+
+:lang(zh-CN), :lang(zh-Hans) {
+    font-family: var(--font-cjk-sc) !important;
+    line-height: 1.7;
+    font-weight: 400;
+}
+
+:lang(zh-TW), :lang(zh-Hant) {
+    font-family: 'Noto Sans TC', 'Source Han Sans TC', 'PingFang TC', 'Microsoft JhengHei UI', 'Microsoft JhengHei', sans-serif !important;
+    line-height: 1.7;
+    font-weight: 400;
+}
+
+:lang(ko) {
+    font-family: var(--font-cjk-kr);
+    line-height: 1.7;
+}
+
+/* Document-level Chinese font enforcement */
+html[lang="zh-CN"], html[lang="zh-Hans"],
+body[lang="zh-CN"], body[lang="zh-Hans"] {
+    font-family: var(--font-cjk-sc) !important;
+}
+
+html[lang="zh-CN"] *, html[lang="zh-Hans"] *,
+body[lang="zh-CN"] *, body[lang="zh-Hans"] * {
+    font-family: inherit !important;
+}
+
+/* High-DPI optimizations */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    body {
+        font-size: 1.02em;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        font-weight: 400;
+    }
+    
+    code, pre {
+        font-weight: 400;
+    }
+}
+
+/* Print-specific optimizations */
+@media print {
+    * {
+        -webkit-print-color-adjust: exact;
+        color-adjust: exact;
+    }
+    
+    body {
+        font-size: 12pt;
+        line-height: 1.4;
+    }
+    
+    h1 { font-size: 24pt; font-weight: 500; }
+    h2 { font-size: 20pt; font-weight: 500; }
+    h3 { font-size: 16pt; font-weight: 500; }
+    h4 { font-size: 14pt; font-weight: 500; }
+    h5 { font-size: 12pt; font-weight: 500; }
+    h6 { font-size: 11pt; font-weight: 500; }
+    
+    code, pre {
+        font-size: 10pt;
+        font-weight: 400;
+    }
+}
+
+/* Chinese character unification */
+.zh-cn, .zh-hans, [lang="zh-CN"], [lang="zh-Hans"] {
+    font-family: var(--font-cjk-sc) !important;
+}
+
+.zh-tw, .zh-hant, [lang="zh-TW"], [lang="zh-Hant"] {
+    font-family: 'Noto Sans TC', 'Source Han Sans TC', 'PingFang TC', 'Microsoft JhengHei UI', 'Microsoft JhengHei', sans-serif !important;
+}
+
+/* Mermaid diagram font optimization */
+.mermaid {
+    font-family: var(--font-sans) !important;
+}
+
+.mermaid text {
+    font-family: var(--font-sans) !important;
+}
+
+/* Table font optimization */
+table {
+    font-variant-numeric: tabular-nums;
+}
+
+/* Math font optimization (for KaTeX) */
+.katex {
+    font-family: "KaTeX_Main", var(--font-serif);
+}
+
+/* Ensure consistent font loading */
+body.font-loading {
+    visibility: hidden;
+}
+
+body.font-loaded {
+    visibility: visible;
+}

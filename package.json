@@ -1,0 +1,101 @@
+{
+  "name": "markdown-snapshot-pdf",
+  "displayName": "Markdown Snapshot PDF",
+  "description": "Convert Markdown files to PDF with snapshot capability",
+  "version": "1.0.0",
+  "publisher": "Shima",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "icon": "icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cloud-innovation-dev/markdown-mermaid-pdf-extension.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cloud-innovation-dev/markdown-mermaid-pdf-extension/issues"
+  },
+  "homepage": "https://github.com/cloud-innovation-dev/markdown-mermaid-pdf-extension#readme",
+  "activationEvents": [
+    "onLanguage:markdown"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "markdownSnapshotPdf.convertToPdf",
+        "title": "Convert to PDF",
+        "category": "Markdown Snapshot PDF"
+      },
+      {
+        "command": "markdownSnapshotPdf.convertToPdfOnePage",
+        "title": "Convert to PDF (1 page)",
+        "category": "Markdown Snapshot PDF"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "when": "resourceExtname == .md",
+          "command": "markdownSnapshotPdf.convertToPdf",
+          "group": "markdownPdf@1"
+        },
+        {
+          "when": "resourceExtname == .md",
+          "command": "markdownSnapshotPdf.convertToPdfOnePage",
+          "group": "markdownPdf@2"
+        }
+      ],
+      "explorer/context": [
+        {
+          "when": "resourceExtname == .md",
+          "command": "markdownSnapshotPdf.convertToPdf",
+          "group": "markdownPdf@1"
+        },
+        {
+          "when": "resourceExtname == .md",
+          "command": "markdownSnapshotPdf.convertToPdfOnePage",
+          "group": "markdownPdf@2"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "markdownSnapshotPdf.convertToPdf",
+          "when": "resourceExtname == .md"
+        },
+        {
+          "command": "markdownSnapshotPdf.convertToPdfOnePage",
+          "when": "resourceExtname == .md"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "postinstall": "node scripts/setup-puppeteer.js"
+  },
+  "devDependencies": {
+    "@types/node": "16.x",
+    "@types/vscode": "^1.74.0",
+    "typescript": "^4.9.4"
+  },
+  "dependencies": {
+    "arg": "^5.0.2",
+    "chalk": "^4.1.2",
+    "chokidar": "^3.6.0",
+    "get-port": "^7.1.0",
+    "gray-matter": "^4.0.3",
+    "highlight.js": "^11.11.1",
+    "iconv-lite": "^0.6.3",
+    "katex": "^0.16.11",
+    "listr": "^0.14.3",
+    "marked": "^16.2.1",
+    "puppeteer": "^24.17.0",
+    "serve-handler": "^6.1.6"
+  }
+}

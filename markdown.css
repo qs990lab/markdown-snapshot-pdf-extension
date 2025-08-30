@@ -1,0 +1,212 @@
+* {
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 100%;
+}
+
+body {
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
+		'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+	line-height: 1.6;
+	font-size: 0.6875em; /* 11 pt */
+	color: #111;
+	margin: 0;
+}
+
+body > :first-child {
+	padding-top: 0;
+	margin-top: 0;
+}
+
+body > :last-child {
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0;
+	padding: 0.5em 0 0.25em;
+}
+
+h5,
+h6 {
+	padding: 0;
+}
+
+h5 {
+	font-size: 1em;
+}
+
+h6 {
+	font-size: 0.875em;
+	text-transform: uppercase;
+}
+
+p {
+	margin: 0.25em 0 1em;
+}
+
+blockquote {
+	margin: 0.5em 0 1em;
+	padding-left: 0.5em;
+	padding-right: 1em;
+	border-left: 4px solid gainsboro;
+	font-style: italic;
+}
+
+ul,
+ol {
+	margin: 0;
+	padding: 0 1.5em 0.5em;
+}
+
+
+
+/* インラインコード */
+h1 code,
+h2 code,
+h3 code,
+h4 code,
+h5 code,
+h6 code,
+p code,
+li code {
+	background-color: #f1f1f1;
+	padding: 0.1em 0.375em;
+	border-radius: 0.25em;
+	font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+	font-size: 0.9em;
+	color: #d73a49;
+	border: 1px solid #e1e4e8;
+}
+
+/* コードブロック - highlight.jsと競合しないように調整 */
+pre {
+	white-space: pre-wrap;
+	word-wrap: break-word;
+	border-radius: 0.375em;
+	padding: 1em;
+	margin: 1em 0;
+	overflow-x: auto;
+	font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+	font-size: 0.85em;
+	line-height: 1.45;
+}
+
+/* highlight.jsが適用されていないコードブロックのフォールバック */
+pre:not(.hljs) {
+	background-color: #f6f8fa;
+	border: 1px solid #e1e4e8;
+}
+
+/* highlight.jsのスタイルを優先させる */
+pre.hljs {
+	/* highlight.jsの背景色とボーダーを維持 */
+}
+
+pre code {
+	background-color: transparent;
+	border: none;
+	padding: 0;
+	font-size: inherit;
+	color: inherit;
+	border-radius: 0;
+}
+
+.page-break {
+	page-break-after: always;
+}
+
+img {
+	max-width: 100%;
+	margin: 1em 0;
+}
+
+table {
+	border-spacing: 0;
+	border-collapse: collapse;
+	display: block;
+	margin: 0 0 1em;
+	width: 100%;
+	overflow: auto;
+}
+
+table th,
+table td {
+	padding: 0.5em 1em;
+	border: 1px solid gainsboro;
+}
+
+table th {
+	font-weight: 600;
+}
+
+table tr {
+	background-color: white;
+	border-top: 1px solid gainsboro;
+}
+
+table tr:nth-child(2n) {
+	background-color: whitesmoke;
+}
+
+/* Mermaid diagrams - ensure they fit within page width */
+.mermaid {
+	max-width: 100% !important;
+	height: auto !important;
+	overflow: visible !important;
+}
+
+/* For one-page PDFs - ensure content doesn't break across pages */
+body.one-page {
+	page-break-inside: avoid !important;
+	break-inside: avoid !important;
+}
+
+body.one-page * {
+	page-break-inside: avoid !important;
+	break-inside: avoid !important;
+	page-break-before: avoid !important;
+	page-break-after: avoid !important;
+	break-before: avoid !important;
+	break-after: avoid !important;
+}
+
+body.one-page h1,
+body.one-page h2,
+body.one-page h3,
+body.one-page h4,
+body.one-page h5,
+body.one-page h6 {
+	page-break-after: avoid !important;
+	break-after: avoid !important;
+	page-break-inside: avoid !important;
+	break-inside: avoid !important;
+}
+
+body.one-page pre,
+body.one-page blockquote,
+body.one-page table,
+body.one-page .mermaid {
+	page-break-inside: avoid !important;
+	break-inside: avoid !important;
+	page-break-before: avoid !important;
+	page-break-after: avoid !important;
+	break-before: avoid !important;
+	break-after: avoid !important;
+}
+
+/* Ensure images scale properly in one-page mode */
+body.one-page img {
+	max-width: 100%;
+	height: auto;
+	page-break-inside: avoid !important;
+	break-inside: avoid !important;
+}

@@ -1,0 +1,123 @@
+.vscode/**
+.vscode-test/**
+src/**
+.gitignore
+.yarnrc
+vsc-extension-quickstart.md
+**/tsconfig.json
+**/.eslintrc.json
+**/*.map
+**/*.ts
+
+# Development files
+INSTALL.md
+corporate-config.json
+
+# Test and check files
+test/**
+check/**
+
+# Serena directory
+.serena/**
+
+# Old backup files
+lib/*.old
+
+# Node modules optimization - exclude development dependencies
+node_modules/**/test/**
+node_modules/**/tests/**
+node_modules/**/spec/**
+node_modules/**/*.md
+node_modules/**/*.txt
+node_modules/**/LICENSE*
+node_modules/**/CHANGELOG*
+node_modules/**/README*
+node_modules/**/.github/**
+node_modules/**/.vscode/**
+node_modules/**/docs/**
+node_modules/**/examples/**
+node_modules/**/example/**
+node_modules/**/sample/**
+node_modules/**/samples/**
+node_modules/**/demo/**
+node_modules/**/demos/**
+node_modules/**/.nyc_output/**
+node_modules/**/coverage/**
+node_modules/**/*.d.ts
+node_modules/**/.travis.yml
+node_modules/**/.appveyor.yml
+node_modules/**/Gruntfile.js
+node_modules/**/gulpfile.js
+node_modules/**/webpack.config.js
+node_modules/**/.babelrc*
+node_modules/**/.eslintrc*
+node_modules/**/.jshintrc*
+node_modules/**/tsconfig.json
+node_modules/**/tslint.json
+node_modules/**/*.tgz
+node_modules/**/*.tar.gz
+
+# Puppeteer optimization - exclude unused browsers
+node_modules/puppeteer/.local-chromium/**
+node_modules/**/chrome-mac/**
+node_modules/**/chrome-linux/**
+node_modules/**/chrome-win/**
+node_modules/**/.local-chromium/**
+
+# Exclude large development tools
+node_modules/**/@babel/**
+node_modules/**/@types/**
+node_modules/**/typescript/**
+node_modules/**/eslint/**
+node_modules/**/webpack/**
+
+# Exclude large unminified mermaid.js (keep only mermaid.min.js)
+lib/mermaid.js
+
+# Test PDF files (exclude from package)
+test/*.pdf
+*.pdf
+
+# Additional size optimizations
+# Exclude sample files and images
+sample/**
+*.png
+*.jpg
+*.jpeg
+*.gif
+!icon.png
+
+# Exclude git files
+.git/**
+.gitignore
+.gitattributes
+
+# Exclude development configuration
+.editorconfig
+.prettierrc*
+.eslintrc*
+tsconfig.json
+webpack.config.js
+
+# Exclude backup and temporary files
+**/*.bak
+**/*.tmp
+**/*.temp
+**/*~
+**/.DS_Store
+**/Thumbs.db
+
+# Exclude additional node_modules content
+node_modules/**/bin/**
+node_modules/**/man/**
+node_modules/**/*.map
+node_modules/**/*.flow
+node_modules/**/benchmark/**
+node_modules/**/benchmarks/**
+node_modules/**/perf/**
+node_modules/**/performance/**
+
+# Exclude highlight.js images (keep only necessary styles)
+node_modules/highlight.js/styles/*.png
+node_modules/highlight.js/styles/*.jpg
+node_modules/highlight.js/styles/*.jpeg
