@@ -83,6 +83,11 @@ async function main(args, config) {
 		config.dest = dest;
 	}
 
+	// Handle one-page option
+	if (args['--one-page']) {
+		config.onePage = true;
+	}
+
 	// merge config from config file
 	if (args['--config-file']) {
 		try {
