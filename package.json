@@ -3,7 +3,7 @@
   "displayName": "Markdown Snapshot PDF",
   "description": "Convert Markdown files to PDF with snapshot capability",
   "license": "Unlicense",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "publisher": "Shima",
   "engines": {
     "vscode": "^1.74.0"
