@@ -93,7 +93,33 @@ export HTTPS_PROXY=http://proxy.company.com:8080
 
 ## 📄 ライセンス
 
-[The Unlicense](https://github.com/lezkizofrenik/md-to-pdf-ng/blob/00510206b75f915007e8e2860e8ef4593cc99182/license)
+この拡張機能は[The Unlicense](https://unlicense.org/)の下でリリースされています - パブリックドメイン。
+
+Copyright 2025 Shima
+
+### サードパーティライブラリ
+
+この拡張機能には以下のサードパーティライブラリが含まれています：
+
+- **KaTeX v0.16.11** - MIT License
+  - Copyright (c) 2013-2020 Khan Academy and other contributors
+  - [License](https://github.com/KaTeX/KaTeX/blob/main/LICENSE)
+
+- **Mermaid v11.10.1** - MIT License  
+  - Copyright (c) 2014-2021 Knut Sveidqvist
+  - [License](https://github.com/mermaid-js/mermaid/blob/develop/LICENSE)
+
+- **Marked v16.2.1** - MIT License
+  - Copyright (c) 2011-2022, Christopher Jeffrey
+  - [License](https://github.com/markedjs/marked/blob/master/LICENSE.md)
+
+- **md-to-pdf** - MIT License
+  - Copyright (c) Simon Hänisch
+  - [License](https://github.com/simonhaenisch/md-to-pdf)
+
+- **highlight.js v11.11.1** - BSD 3-Clause License
+  - Copyright (c) 2006, Ivan Sagalaev
+  - [License](https://github.com/highlightjs/highlight.js/blob/main/LICENSE)
 
 ## 🛠️ 開発
 
