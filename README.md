@@ -105,7 +105,7 @@ This extension bundles the following third-party libraries:
   - [License](https://github.com/KaTeX/KaTeX/blob/main/LICENSE)
 
 - **Mermaid v11.10.1** - MIT License  
-  - Copyright (c) 2014-2021 Knut Sveidqvist
+  - Copyright (c) 2014-2022 Knut Sveidqvist
   - [License](https://github.com/mermaid-js/mermaid/blob/develop/LICENSE)
 
 - **Marked v16.2.1** - MIT License
