@@ -26,6 +26,17 @@ A VSCode extension that converts Markdown files (including Mermaid diagrams) to 
 - Full support for Japanese, Chinese, and emoji characters
 - **Complete offline operation** - all libraries and fonts are bundled
 
+## 📋 Prerequisites
+
+### WSL (Windows Subsystem for Linux)
+
+If you're using WSL, install the required system libraries:
+
+```bash
+sudo apt update
+sudo apt install -y libnss3-dev libxss1 libxtst6 libxrandr2 libasound2-dev libpangocairo-1.0-0 libatk1.0-0 libcairo-gobject2 libgtk-3-0 libgdk-pixbuf2.0-0
+```
+
 ## 🚀 Usage
 
 1. Open a Markdown file in VSCode
