@@ -85,6 +85,7 @@ build/
 # Test PDF files (exclude from git)
 test/*.pdf
 *.pdf
+test/*.html
 
 # But keep test markdown files
 !test/*.md
