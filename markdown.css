@@ -210,3 +210,12 @@ body.one-page img {
 	page-break-inside: avoid !important;
 	break-inside: avoid !important;
 }
+
+/* Highlight text styling */
+mark {
+	background-color: #ffeb3b;
+	color: #000;
+	padding: 0.1em 0.2em;
+	border-radius: 3px;
+	font-weight: 500;
+}
