@@ -10,6 +10,16 @@ All notable changes to the "Markdown Mermaid to PDF" extension will be documente
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.4] - 2025-09-04
+
+### Added
+- Footnote support with GitHub Flavored Markdown syntax ([#4](https://github.com/qs990lab/markdown-snapshot-pdf-extension/issues/4))
+- Highlight text support with ==text== syntax ([#3](https://github.com/qs990lab/markdown-snapshot-pdf-extension/issues/3))
+- Subscript and superscript text support with ~text~ and ^text^ syntax ([#5](https://github.com/qs990lab/markdown-snapshot-pdf-extension/issues/5))
+
+### Fixed
+- WSL conversion errors due to missing system libraries ([#2](https://github.com/qs990lab/markdown-snapshot-pdf-extension/issues/2))
+
 ## [1.0.0] - 2025-08-27
 
 ### Added

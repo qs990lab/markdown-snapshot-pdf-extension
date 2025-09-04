@@ -22,7 +22,11 @@ A VSCode extension that converts Markdown files (including Mermaid diagrams) to 
   - Display math: `$$...$$`
   - Math blocks: ````math`
   - Complex equations, matrices, integrals
-
+- **Extended Markdown syntax support**
+  - Footnotes: `[^1]` with proper linking and back-references
+  - Highlight text: `==highlighted text==`
+  - Subscript: `H~2~O` → H₂O
+  - Superscript: `E = mc^2^` → E = mc²
 - Full support for Japanese, Chinese, and emoji characters
 - **Complete offline operation** - all libraries and fonts are bundled
 
