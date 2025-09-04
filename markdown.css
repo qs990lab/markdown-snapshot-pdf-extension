@@ -146,15 +146,13 @@ table td {
 
 table th {
 	font-weight: 600;
+	background-color: #f0f0f0;
+	color: #333;
 }
 
 table tr {
 	background-color: white;
 	border-top: 1px solid gainsboro;
-}
-
-table tr:nth-child(2n) {
-	background-color: whitesmoke;
 }
 
 /* Mermaid diagrams - ensure they fit within page width */
