@@ -28,6 +28,17 @@ VSCodeでMarkdownファイル（Mermaid図を含む）を高品質なPDFドキ�
 - 日本語・中国語・絵文字の完全サポート
 - **完全オフライン動作** - すべてのライブラリとフォントが内蔵
 
+## 📋 前提条件
+
+### WSL (Windows Subsystem for Linux)
+
+WSLを使用している場合は、必要なシステムライブラリをインストールしてください：
+
+```bash
+sudo apt update
+sudo apt install -y libnss3-dev libxss1 libxtst6 libxrandr2 libasound2-dev libpangocairo-1.0-0 libatk1.0-0 libcairo-gobject2 libgtk-3-0 libgdk-pixbuf2.0-0
+```
+
 ## 🚀 使用方法
 
 1. VSCodeでMarkdownファイルを開く
