@@ -12,12 +12,12 @@
 - **单页PDF输出** - 非常适合报告、演示和文档
 - **多页PDF输出** - 传统文档转换
 - 将Markdown文件转换为高质量PDF文档
-- **支持最新的Mermaid图表**（v11.10.1）
+- **支持最新的Mermaid图表**（v11.12.0）
   - mindmap（思维导图）
   - architecture-beta（架构图）
   - xychart-beta（XY图表）
   - 带图片的流程图
-- **高质量LaTeX数学公式渲染**（KaTeX v0.16.11）
+- **高质量LaTeX数学公式渲染**（KaTeX v0.16.22）
   - 行内公式：`$E = mc^2$`
   - 显示公式：`$$...$$`
   - 数学代码块：````math`
@@ -40,6 +40,22 @@
 sudo apt update
 sudo apt install -y libnss3-dev libxss1 libxtst6 libxrandr2 libasound2-dev libpangocairo-1.0-0 libatk1.0-0 libcairo-gobject2 libgtk-3-0 libgdk-pixbuf2.0-0
 ```
+
+### Ubuntu 24.04
+
+对于Ubuntu 24.04，需要额外的库和字体：
+
+```bash
+# 必需的库
+sudo apt update
+sudo apt install -y libatk-bridge2.0-0 libdrm2 libxcomposite1 libxdamage1 libxrandr2 libgbm1 libxss1 libasound2t64 libcups2t64 libxfixes3 libcairo2 libpango-1.0-0 libpangocairo-1.0-0
+
+# CJK和表情符号字体
+sudo apt install fonts-noto-cjk -y
+sudo apt install fonts-noto-color-emoji -y
+```
+
+安装后，请重新加载VSCode窗口（`Ctrl+Shift+P` → "Developer: Reload Window"）。
 
 ## 🚀 使用方法
 
@@ -99,8 +115,8 @@ export HTTPS_PROXY=http://proxy.company.com:8080
 
 ## 🔧 技术规格
 
-- **Mermaid版本**: v11.10.1（最新）
-- **LaTeX数学**: KaTeX v0.16.11（内置字体）
+- **Mermaid版本**: v11.12.0（最新）
+- **LaTeX数学**: KaTeX v0.16.22（内置字体）
 - **PDF引擎**: Puppeteer（无头Chrome）
 - **Markdown解析器**: Marked v16.2.1
 
@@ -114,11 +130,11 @@ Copyright 2025 Shima
 
 此扩展包含以下第三方库：
 
-- **KaTeX v0.16.11** - MIT License
+- **KaTeX v0.16.22** - MIT License
   - Copyright (c) 2013-2020 Khan Academy and other contributors
   - [License](https://github.com/KaTeX/KaTeX/blob/main/LICENSE)
 
-- **Mermaid v11.10.1** - MIT License  
+- **Mermaid v11.12.0** - MIT License  
   - Copyright (c) 2014-2022 Knut Sveidqvist
   - [License](https://github.com/mermaid-js/mermaid/blob/develop/LICENSE)
 

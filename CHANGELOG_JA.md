@@ -10,6 +10,15 @@
 このフォーマットは [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) に基づいており、
 このプロジェクトは [Semantic Versioning](https://semver.org/spec/v2.0.0.html) に準拠しています。
 
+## [1.0.5] - 2025-10-17
+
+### 更新
+- Mermaidライブラリをv11.12.0に更新（v11.10.1から）
+- KaTeXライブラリをv0.16.22に更新（v0.16.11から）
+
+### 修正
+- コードブロック内の長い行がPDF出力で適切に折り返されるように修正 ([#11](https://github.com/qs990lab/markdown-snapshot-pdf-extension/issues/11))
+
 ## [1.0.4] - 2025-09-04
 
 ### 追加

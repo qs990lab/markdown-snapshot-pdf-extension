@@ -12,12 +12,12 @@ VSCodeでMarkdownファイル（Mermaid図を含む）を高品質なPDFドキ�
 - **1ページPDF出力** - レポート、プレゼンテーション、ドキュメントに最適
 - **複数ページPDF出力** - 従来のドキュメント変換
 - Markdownファイルを高品質なPDFドキュメントに変換
-- **最新のMermaid図表に対応**（v11.10.1）
+- **最新のMermaid図表に対応**（v11.12.0）
   - mindmap（マインドマップ）
   - architecture-beta（アーキテクチャ図）
   - xychart-beta（XYチャート）
   - 画像付きフローチャート
-- **高品質LaTeX数式レンダリング**（KaTeX v0.16.11）
+- **高品質LaTeX数式レンダリング**（KaTeX v0.16.22）
   - インライン数式：`$E = mc^2$`
   - ディスプレイ数式：`$$...$$`
   - 数式ブロック：````math`
@@ -40,6 +40,22 @@ WSLを使用している場合は、必要なシステムライブラリをイ�
 sudo apt update
 sudo apt install -y libnss3-dev libxss1 libxtst6 libxrandr2 libasound2-dev libpangocairo-1.0-0 libatk1.0-0 libcairo-gobject2 libgtk-3-0 libgdk-pixbuf2.0-0
 ```
+
+### Ubuntu 24.04
+
+Ubuntu 24.04では、追加のライブラリとフォントが必要です：
+
+```bash
+# 必要なライブラリ
+sudo apt update
+sudo apt install -y libatk-bridge2.0-0 libdrm2 libxcomposite1 libxdamage1 libxrandr2 libgbm1 libxss1 libasound2t64 libcups2t64 libxfixes3 libcairo2 libpango-1.0-0 libpangocairo-1.0-0
+
+# CJKと絵文字フォント
+sudo apt install fonts-noto-cjk -y
+sudo apt install fonts-noto-color-emoji -y
+```
+
+インストール後、VSCodeウィンドウをリロードしてください（`Ctrl+Shift+P` → "Developer: Reload Window"）。
 
 ## 🚀 使用方法
 
@@ -99,8 +115,8 @@ export HTTPS_PROXY=http://proxy.company.com:8080
 
 ## 🔧 技術仕様
 
-- **Mermaidバージョン**: v11.10.1（最新）
-- **LaTeX数式**: KaTeX v0.16.11（埋め込みフォント付き）
+- **Mermaidバージョン**: v11.12.0（最新）
+- **LaTeX数式**: KaTeX v0.16.22（埋め込みフォント付き）
 - **PDFエンジン**: Puppeteer（Headless Chrome）
 - **Markdownパーサー**: Marked v16.2.1
 
@@ -114,11 +130,11 @@ Copyright 2025 Shima
 
 この拡張機能には以下のサードパーティライブラリが含まれています：
 
-- **KaTeX v0.16.11** - MIT License
+- **KaTeX v0.16.22** - MIT License
   - Copyright (c) 2013-2020 Khan Academy and other contributors
   - [License](https://github.com/KaTeX/KaTeX/blob/main/LICENSE)
 
-- **Mermaid v11.10.1** - MIT License  
+- **Mermaid v11.12.0** - MIT License  
   - Copyright (c) 2014-2022 Knut Sveidqvist
   - [License](https://github.com/mermaid-js/mermaid/blob/develop/LICENSE)
 

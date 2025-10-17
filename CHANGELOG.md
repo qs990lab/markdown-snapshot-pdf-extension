@@ -10,6 +10,15 @@ All notable changes to the "Markdown Mermaid to PDF" extension will be documente
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.5] - 2025-10-17
+
+### Updated
+- Mermaid library updated to v11.12.0 (from v11.10.1)
+- KaTeX library updated to v0.16.22 (from v0.16.11)
+
+### Fixed
+- Code blocks now wrap long lines properly in PDF output ([#11](https://github.com/qs990lab/markdown-snapshot-pdf-extension/issues/11))
+
 ## [1.0.4] - 2025-09-04
 
 ### Added

@@ -12,12 +12,12 @@ A VSCode extension that converts Markdown files (including Mermaid diagrams) to 
 - **Single-page PDF output** - Perfect for reports, presentations, and documentation
 - **Multi-page PDF output** - Traditional document conversion
 - Convert Markdown files to high-quality PDF documents
-- **Latest Mermaid diagram support** (v11.10.1)
+- **Latest Mermaid diagram support** (v11.12.0)
   - mindmap (Mind Maps)
   - architecture-beta (Architecture Diagrams)
   - xychart-beta (XY Charts)
   - Flowcharts with images
-- **High-quality LaTeX math rendering** (KaTeX v0.16.11)
+- **High-quality LaTeX math rendering** (KaTeX v0.16.22)
   - Inline math: `$E = mc^2$`
   - Display math: `$$...$$`
   - Math blocks: ````math`
@@ -40,6 +40,22 @@ If you're using WSL, install the required system libraries:
 sudo apt update
 sudo apt install -y libnss3-dev libxss1 libxtst6 libxrandr2 libasound2-dev libpangocairo-1.0-0 libatk1.0-0 libcairo-gobject2 libgtk-3-0 libgdk-pixbuf2.0-0
 ```
+
+### Ubuntu 24.04
+
+For Ubuntu 24.04, additional libraries and fonts are required:
+
+```bash
+# Required libraries
+sudo apt update
+sudo apt install -y libatk-bridge2.0-0 libdrm2 libxcomposite1 libxdamage1 libxrandr2 libgbm1 libxss1 libasound2t64 libcups2t64 libxfixes3 libcairo2 libpango-1.0-0 libpangocairo-1.0-0
+
+# CJK and emoji fonts
+sudo apt install fonts-noto-cjk -y
+sudo apt install fonts-noto-color-emoji -y
+```
+
+After installation, reload the VSCode window (`Ctrl+Shift+P` → "Developer: Reload Window").
 
 ## 🚀 Usage
 
@@ -99,8 +115,8 @@ In completely offline environments, local Mermaid libraries are automatically us
 
 ## 🔧 Technical Specifications
 
-- **Mermaid Version**: v11.10.1 (Latest)
-- **LaTeX Math**: KaTeX v0.16.11 with embedded fonts
+- **Mermaid Version**: v11.12.0 (Latest)
+- **KaTeX Version**: v0.16.22 (Latest)
 
 - **PDF Engine**: Puppeteer (Headless Chrome)
 - **Markdown Parser**: Marked v16.2.1
