@@ -131,11 +131,11 @@ Copyright 2025 Shima
 
 This extension bundles the following third-party libraries:
 
-- **KaTeX v0.16.11** - MIT License
+- **KaTeX v0.16.22** - MIT License
   - Copyright (c) 2013-2020 Khan Academy and other contributors
   - [License](https://github.com/KaTeX/KaTeX/blob/main/LICENSE)
 
-- **Mermaid v11.10.1** - MIT License  
+- **Mermaid v11.12.0** - MIT License  
   - Copyright (c) 2014-2022 Knut Sveidqvist
   - [License](https://github.com/mermaid-js/mermaid/blob/develop/LICENSE)
 
