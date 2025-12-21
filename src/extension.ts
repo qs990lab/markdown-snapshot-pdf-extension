@@ -8,36 +8,49 @@ const execAsync = promisify(exec);
 export function activate(context: vscode.ExtensionContext) {
     console.log('Markdown Snapshot PDF extension is now active!');
 
-    let convertToPdf = vscode.commands.registerCommand('markdownSnapshotPdf.convertToPdf', async () => {
-        await convertMarkdownToPdf(context);
+    let convertToPdf = vscode.commands.registerCommand('markdownSnapshotPdf.convertToPdf', async (uri?: vscode.Uri) => {
+        await convertMarkdownToPdf(context, false, uri);
     });
 
-    let convertToPdfOnePage = vscode.commands.registerCommand('markdownSnapshotPdf.convertToPdfOnePage', async () => {
-        await convertMarkdownToPdf(context, true);
+    let convertToPdfOnePage = vscode.commands.registerCommand('markdownSnapshotPdf.convertToPdfOnePage', async (uri?: vscode.Uri) => {
+        await convertMarkdownToPdf(context, true, uri);
     });
 
     context.subscriptions.push(convertToPdf);
     context.subscriptions.push(convertToPdfOnePage);
 }
 
-async function convertMarkdownToPdf(context: vscode.ExtensionContext, onePage: boolean = false) {
-    const activeEditor = vscode.window.activeTextEditor;
+async function convertMarkdownToPdf(context: vscode.ExtensionContext, onePage: boolean = false, uri?: vscode.Uri) {
+    let filePath: string;
     
-    if (!activeEditor) {
-        vscode.window.showErrorMessage('No active editor found');
+    // エクスプローラーから右クリックされた場合はuriを使用
+    if (uri) {
+        filePath = uri.fsPath;
+    } else {
+        // コマンドパレットから実行された場合はアクティブエディタを使用
+        const activeEditor = vscode.window.activeTextEditor;
+        
+        if (!activeEditor) {
+            vscode.window.showErrorMessage('No active editor found');
+            return;
+        }
+
+        const document = activeEditor.document;
+        
+        if (document.languageId !== 'markdown') {
+            vscode.window.showErrorMessage('Current file is not a Markdown file');
+            return;
+        }
+
+        await document.save();
+        filePath = document.fileName;
+    }
+    
+    // ファイルがMarkdownかチェック
+    if (!filePath.endsWith('.md')) {
+        vscode.window.showErrorMessage('Selected file is not a Markdown file');
         return;
     }
-
-    const document = activeEditor.document;
-    
-    if (document.languageId !== 'markdown') {
-        vscode.window.showErrorMessage('Current file is not a Markdown file');
-        return;
-    }
-
-    await document.save();
-    
-    const filePath = document.fileName;
     const fileDir = path.dirname(filePath);
     const fileName = path.basename(filePath, '.md');
     const outputPath = path.join(fileDir, `${fileName}.pdf`);
