@@ -10,6 +10,22 @@
 このフォーマットは [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) に基づいており、
 このプロジェクトは [Semantic Versioning](https://semver.org/spec/v2.0.0.html) に準拠しています。
 
+## [1.0.6] - 2025-12-21
+
+### 修正
+- ファイルエクスプローラーで右クリックコンテキストメニューが選択されたファイルを変換しない問題を修正 ([#12](https://github.com/qs990lab/markdown-snapshot-pdf-extension/issues/12))
+- MDファイル内の$を含むコードが出力を破損する問題を修正 ([#13](https://github.com/qs990lab/markdown-snapshot-pdf-extension/issues/13))
+
+### 更新
+- KaTeXライブラリをv0.16.27に更新（v0.16.22から）
+- Markedライブラリをv17.0.1に更新（v16.2.1から）
+- Puppeteerライブラリをv24.29.0に更新（v24.17.0から）
+
+### 技術的改善
+- 数式処理の干渉を防ぐためのコードブロック保護メカニズムを改善
+- 再帰的なコンテンツ重複を避けるためのプレースホルダー置換を最適化
+- KaTeX処理のエラーハンドリングを強化
+
 ## [1.0.5] - 2025-10-17
 
 ### 更新

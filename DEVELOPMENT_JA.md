@@ -10,8 +10,8 @@
 ## ✨ 機能
 
 このVSCode拡張機能は、以下をサポートしてMarkdownファイルを高品質なPDFドキュメントに変換します：
-- **Mermaid図表**（v11.10.1） - マインドマップ、アーキテクチャ図、XYチャートを含む最新機能
-- **LaTeX数式**（KaTeX v0.16.11） - 埋め込みフォント付き高品質数式レンダリング
+- **Mermaid図表**（v11.12.0） - マインドマップ、アーキテクチャ図、XYチャートを含む最新機能
+- **LaTeX数式**（KaTeX v0.16.27） - 埋め込みフォント付き高品質数式レンダリング
 - **完全オフライン動作** - すべてのライブラリとフォントを内蔵
 
 ## 🏗️ プロジェクト構成
@@ -24,9 +24,6 @@
 │   ├── config.js          # デフォルト設定
 │   └── mermaid.min.js     # バンドルされたMermaidライブラリ
 ├── test/                   # テストファイル
-│   ├── latex_test.md      # LaTeX数式テストファイル
-│   ├── latex_advanced_test.md  # 高度なLaTeXテストファイル
-│   └── test_mermaid.md    # Mermaid図表テストファイル
 ├── index.js               # ライブラリエントリーポイント
 ├── cli.js                 # CLI実行用
 ├── markdown.css           # PDFスタイリング
@@ -132,9 +129,9 @@ vsce package
 
 ### ランタイム依存関係
 
-- `puppeteer`: PDF生成エンジン
-- `marked`: Markdownパーサー
-- `highlight.js`: シンタックスハイライト
+- `puppeteer`: PDF生成エンジン（v24.29.0）
+- `marked`: Markdownパーサー（v17.0.1）
+- `highlight.js`: シンタックスハイライト（v11.11.1）
 - `gray-matter`: フロントマター解析
 
 ### 開発依存関係

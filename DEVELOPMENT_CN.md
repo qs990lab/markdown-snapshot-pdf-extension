@@ -10,8 +10,8 @@
 ## ✨ 功能特性
 
 此VSCode扩展将Markdown文件转换为高质量PDF文档，支持：
-- **Mermaid图表**（v11.10.1） - 包括思维导图、架构图和XY图表的最新功能
-- **LaTeX数学公式**（KaTeX v0.16.11） - 带内置字体的高质量数学渲染
+- **Mermaid图表**（v11.12.0） - 包括思维导图、架构图和XY图表的最新功能
+- **LaTeX数学公式**（KaTeX v0.16.27） - 带内置字体的高质量数学渲染
 - **完全离线运行** - 所有库和字体都已内置
 
 ## 🏗️ 项目结构
@@ -24,9 +24,6 @@
 │   ├── config.js          # 默认配置
 │   └── mermaid.min.js     # 捆绑的Mermaid库
 ├── test/                   # 测试文件
-│   ├── latex_test.md      # LaTeX数学测试文件
-│   ├── latex_advanced_test.md  # 高级LaTeX测试文件
-│   └── test_mermaid.md    # Mermaid图表测试文件
 ├── index.js               # 库入口点
 ├── cli.js                 # CLI执行
 ├── markdown.css           # PDF样式
@@ -132,9 +129,9 @@ vsce package
 
 ### 运行时依赖
 
-- `puppeteer`: PDF生成引擎
-- `marked`: Markdown解析器
-- `highlight.js`: 语法高亮
+- `puppeteer`: PDF生成引擎（v24.29.0）
+- `marked`: Markdown解析器（v17.0.1）
+- `highlight.js`: 语法高亮（v11.11.1）
 - `gray-matter`: 前置内容解析
 
 ### 开发依赖

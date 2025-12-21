@@ -10,6 +10,22 @@
 格式基于 [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)，
 此项目遵循 [Semantic Versioning](https://semver.org/spec/v2.0.0.html)。
 
+## [1.0.6] - 2025-12-21
+
+### 修复
+- 修复文件资源管理器中右键上下文菜单不转换选定文件的问题 ([#12](https://github.com/qs990lab/markdown-snapshot-pdf-extension/issues/12))
+- 修复MD文件中包含$的代码破坏输出的问题 ([#13](https://github.com/qs990lab/markdown-snapshot-pdf-extension/issues/13))
+
+### 更新
+- KaTeX库更新至v0.16.27（从v0.16.22）
+- Marked库更新至v17.0.1（从v16.2.1）
+- Puppeteer库更新至v24.29.0（从v24.17.0）
+
+### 技术改进
+- 改进代码块保护机制以防止数学处理干扰
+- 优化占位符替换以避免递归内容重复
+- 增强KaTeX处理的错误处理
+
 ## [1.0.5] - 2025-10-17
 
 ### 更新

@@ -10,8 +10,8 @@ This document provides information for developers who want to contribute to or m
 ## ✨ Features
 
 This VSCode extension converts Markdown files to high-quality PDF documents with support for:
-- **Mermaid diagrams** (v11.10.1) - Latest features including mindmaps, architecture diagrams, and XY charts
-- **LaTeX mathematics** (KaTeX v0.16.11) - High-quality math rendering with embedded fonts
+- **Mermaid diagrams** (v11.12.0) - Latest features including mindmaps, architecture diagrams, and XY charts
+- **LaTeX mathematics** (KaTeX v0.16.27) - High-quality math rendering with embedded fonts
 - **Complete offline operation** - All libraries and fonts are bundled
 
 ## 🏗️ Project Structure
@@ -24,9 +24,6 @@ This VSCode extension converts Markdown files to high-quality PDF documents with
 │   ├── config.js          # Default configuration
 │   └── mermaid.min.js     # Bundled Mermaid library
 ├── test/                   # Test files
-│   ├── latex_test.md      # LaTeX math test file
-│   ├── latex_advanced_test.md  # Advanced LaTeX test file
-│   └── test_mermaid.md    # Mermaid diagram test file
 ├── index.js               # Library entry point
 ├── cli.js                 # CLI execution
 ├── markdown.css           # PDF styling
@@ -73,41 +70,32 @@ npm run watch
 
 ## 🧪 Testing
 
-### Test Files
-
-The project includes comprehensive test files for all supported features:
-
-- **`test/latex_test.md`** - Basic LaTeX math expressions
-- **`test/latex_advanced_test.md`** - Advanced LaTeX with matrices, integrals, and complex equations
-- **`test/test_mermaid.md`** - Mermaid diagrams (mindmaps, architecture, XY charts, flowcharts)
-
 ### Running Tests
+
+#### VSCode Extension Testing
+1. Press `F5` to launch Extension Development Host
+2. Open test Markdown files in the new VSCode window
+3. Right-click → "Convert to PDF"
+4. Verify PDF output in the same directory
 
 #### CLI Testing
 ```bash
 # Test individual files
-node cli.js test/latex_test.md
-node cli.js test/test_mermaid.md
+node cli.js your_test_file.md
 
-# Test all files
-node cli.js test/*.md
+# Test all markdown files
+node cli.js *.md
 ```
-
-#### VSCode Extension Testing
-1. Press `F5` to launch Extension Development Host
-2. Open test files in the new VSCode window
-3. Right-click → "Convert to PDF"
-4. Verify PDF output in the same directory
 
 ### Debug Mode
 ```bash
 # Enable detailed logging
-DEBUG=* node cli.js test/test_mermaid.md
+DEBUG=* node cli.js your_test_file.md
 ```
 
 ## 🔧 Technical Implementation
 
-### LaTeX Mathematics (KaTeX v0.16.11)
+### LaTeX Mathematics (KaTeX v0.16.27)
 - **Syntax Support**: 
   - Inline: `$E = mc^2$`
   - Display: `$$\int_{-\infty}^{\infty} e^{-x^2} dx = \sqrt{\pi}$$`
@@ -120,7 +108,7 @@ DEBUG=* node cli.js test/test_mermaid.md
 - **Classes**: `.fas` (solid), `.far` (regular), `.fab` (brands)
 - **Icons**: 6,000+ free icons available
 
-### Mermaid Diagrams (v11.10.1)
+### Mermaid Diagrams (v11.12.0)
 - **Supported Types**: mindmap, architecture-beta, xychart-beta, flowcharts
 - **Rendering**: Browser-based with timeout handling
 - **Offline**: Local Mermaid library bundled
@@ -147,12 +135,6 @@ vsce package
 This creates a `.vsix` file that can be installed in VSCode.
 
 ## 🧪 Testing
-
-Test files are located in the `test/` directory:
-
-- `test_mermaid.md`: Tests latest Mermaid features
-- `test_chinese_emoji.md`: Tests Chinese and emoji support
-- `test_onepage.md`: Tests single-page conversion
 
 To test the extension:
 
@@ -191,9 +173,9 @@ The `package.json` file contains:
 
 ### Runtime Dependencies
 
-- `puppeteer`: PDF generation engine
-- `marked`: Markdown parser
-- `highlight.js`: Syntax highlighting
+- `puppeteer`: PDF generation engine (v24.29.0)
+- `marked`: Markdown parser (v17.0.1)
+- `highlight.js`: Syntax highlighting (v11.11.1)
 - `gray-matter`: Front matter parsing
 
 ### Development Dependencies

@@ -17,7 +17,7 @@ VSCodeでMarkdownファイル（Mermaid図を含む）を高品質なPDFドキ�
   - architecture-beta（アーキテクチャ図）
   - xychart-beta（XYチャート）
   - 画像付きフローチャート
-- **高品質LaTeX数式レンダリング**（KaTeX v0.16.22）
+- **高品質LaTeX数式レンダリング**（KaTeX v0.16.27）
   - インライン数式：`$E = mc^2$`
   - ディスプレイ数式：`$$...$$`
   - 数式ブロック：````math`
@@ -116,9 +116,10 @@ export HTTPS_PROXY=http://proxy.company.com:8080
 ## 🔧 技術仕様
 
 - **Mermaidバージョン**: v11.12.0（最新）
-- **LaTeX数式**: KaTeX v0.16.22（埋め込みフォント付き）
-- **PDFエンジン**: Puppeteer（Headless Chrome）
-- **Markdownパーサー**: Marked v16.2.1
+- **KaTeXバージョン**: v0.16.27（最新）
+
+- **PDFエンジン**: Puppeteer（Headless Chrome）v24.29.0
+- **Markdownパーサー**: Marked v17.0.1
 
 ## 📄 ライセンス
 
@@ -130,7 +131,7 @@ Copyright 2025 Shima
 
 この拡張機能には以下のサードパーティライブラリが含まれています：
 
-- **KaTeX v0.16.22** - MIT License
+- **KaTeX v0.16.27** - MIT License
   - Copyright (c) 2013-2020 Khan Academy and other contributors
   - [License](https://github.com/KaTeX/KaTeX/blob/main/LICENSE)
 
@@ -138,7 +139,7 @@ Copyright 2025 Shima
   - Copyright (c) 2014-2022 Knut Sveidqvist
   - [License](https://github.com/mermaid-js/mermaid/blob/develop/LICENSE)
 
-- **Marked v16.2.1** - MIT License
+- **Marked v17.0.1** - MIT License
   - Copyright (c) 2011-2022, Christopher Jeffrey
   - [License](https://github.com/markedjs/marked/blob/master/LICENSE.md)
 

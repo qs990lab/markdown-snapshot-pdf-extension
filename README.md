@@ -17,7 +17,7 @@ A VSCode extension that converts Markdown files (including Mermaid diagrams) to 
   - architecture-beta (Architecture Diagrams)
   - xychart-beta (XY Charts)
   - Flowcharts with images
-- **High-quality LaTeX math rendering** (KaTeX v0.16.22)
+- **High-quality LaTeX math rendering** (KaTeX v0.16.27)
   - Inline math: `$E = mc^2$`
   - Display math: `$$...$$`
   - Math blocks: ````math`
@@ -116,10 +116,10 @@ In completely offline environments, local Mermaid libraries are automatically us
 ## 🔧 Technical Specifications
 
 - **Mermaid Version**: v11.12.0 (Latest)
-- **KaTeX Version**: v0.16.22 (Latest)
+- **KaTeX Version**: v0.16.27 (Latest)
 
-- **PDF Engine**: Puppeteer (Headless Chrome)
-- **Markdown Parser**: Marked v16.2.1
+- **PDF Engine**: Puppeteer (Headless Chrome) v24.29.0
+- **Markdown Parser**: Marked v17.0.1
 
 ## 📄 License
 
@@ -131,7 +131,7 @@ Copyright 2025 Shima
 
 This extension bundles the following third-party libraries:
 
-- **KaTeX v0.16.22** - MIT License
+- **KaTeX v0.16.27** - MIT License
   - Copyright (c) 2013-2020 Khan Academy and other contributors
   - [License](https://github.com/KaTeX/KaTeX/blob/main/LICENSE)
 
@@ -139,7 +139,7 @@ This extension bundles the following third-party libraries:
   - Copyright (c) 2014-2022 Knut Sveidqvist
   - [License](https://github.com/mermaid-js/mermaid/blob/develop/LICENSE)
 
-- **Marked v16.2.1** - MIT License
+- **Marked v17.0.1** - MIT License
   - Copyright (c) 2011-2022, Christopher Jeffrey
   - [License](https://github.com/markedjs/marked/blob/master/LICENSE.md)
 
