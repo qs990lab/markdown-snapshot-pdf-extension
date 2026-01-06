@@ -8,19 +8,57 @@ const execAsync = promisify(exec);
 export function activate(context: vscode.ExtensionContext) {
     console.log('Markdown Snapshot PDF extension is now active!');
 
-    let convertToPdf = vscode.commands.registerCommand('markdownSnapshotPdf.convertToPdf', async (uri?: vscode.Uri) => {
-        await convertMarkdownToPdf(context, false, uri);
+    let convertToPdf = vscode.commands.registerCommand('markdownSnapshotPdf.convertToPdf', async (uri?: vscode.Uri, uris?: vscode.Uri[]) => {
+        await handleMultipleFiles(context, false, uri, uris);
     });
 
-    let convertToPdfOnePage = vscode.commands.registerCommand('markdownSnapshotPdf.convertToPdfOnePage', async (uri?: vscode.Uri) => {
-        await convertMarkdownToPdf(context, true, uri);
+    let convertToPdfOnePage = vscode.commands.registerCommand('markdownSnapshotPdf.convertToPdfOnePage', async (uri?: vscode.Uri, uris?: vscode.Uri[]) => {
+        await handleMultipleFiles(context, true, uri, uris);
     });
 
     context.subscriptions.push(convertToPdf);
     context.subscriptions.push(convertToPdfOnePage);
 }
 
-async function convertMarkdownToPdf(context: vscode.ExtensionContext, onePage: boolean = false, uri?: vscode.Uri) {
+async function handleMultipleFiles(context: vscode.ExtensionContext, onePage: boolean, uri?: vscode.Uri, uris?: vscode.Uri[]) {
+    if (uris && uris.length > 1) {
+        // 複数ファイル選択時
+        const markdownFiles = uris.filter(u => u.fsPath.endsWith('.md'));
+        
+        if (markdownFiles.length === 0) {
+            vscode.window.showErrorMessage('No Markdown files selected');
+            return;
+        }
+
+        vscode.window.showInformationMessage(`Converting ${markdownFiles.length} files to PDF${onePage ? ' (1 page each)' : ''}...`);
+        
+        // 並列処理で全ファイルを変換
+        const results = await Promise.allSettled(
+            markdownFiles.map(fileUri => convertMarkdownToPdf(context, onePage, fileUri, true))
+        );
+        
+        const successCount = results.filter(r => r.status === 'fulfilled').length;
+        const errorCount = results.filter(r => r.status === 'rejected').length;
+        
+        // エラーログ出力
+        results.forEach((result, index) => {
+            if (result.status === 'rejected') {
+                console.error(`Failed to convert ${markdownFiles[index].fsPath}:`, result.reason);
+            }
+        });
+        
+        if (errorCount === 0) {
+            vscode.window.showInformationMessage(`Successfully converted ${successCount} files to PDF`);
+        } else {
+            vscode.window.showWarningMessage(`Converted ${successCount} files, ${errorCount} failed`);
+        }
+    } else {
+        // 単一ファイル処理
+        await convertMarkdownToPdf(context, onePage, uri, false);
+    }
+}
+
+async function convertMarkdownToPdf(context: vscode.ExtensionContext, onePage: boolean = false, uri?: vscode.Uri, suppressMessage: boolean = false) {
     let filePath: string;
     
     // エクスプローラーから右クリックされた場合はuriを使用
@@ -74,7 +112,9 @@ async function convertMarkdownToPdf(context: vscode.ExtensionContext, onePage: b
         
         const result = await mdToPdf(filePath, config);
 
-        vscode.window.showInformationMessage(`PDF conversion completed: ${path.basename(result.filename)}`);
+        if (!suppressMessage) {
+            vscode.window.showInformationMessage(`PDF conversion completed: ${path.basename(result.filename)}`);
+        }
 
     } catch (error: any) {
         console.error('Conversion error:', error);
