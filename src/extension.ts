@@ -30,7 +30,7 @@ async function handleMultipleFiles(context: vscode.ExtensionContext, onePage: bo
             return;
         }
 
-        vscode.window.showInformationMessage(`Converting ${markdownFiles.length} files to PDF${onePage ? ' (1 page each)' : ''}...`);
+        vscode.window.showInformationMessage(`Converting ${markdownFiles.length} files to PDF...`);
         
         // 並列処理で全ファイルを変換
         const results = await Promise.allSettled(
