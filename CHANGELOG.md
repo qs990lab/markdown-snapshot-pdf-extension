@@ -10,6 +10,17 @@ All notable changes to the "Markdown Mermaid to PDF" extension will be documente
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.7] - 2026-01-06
+
+### Fixed
+- Multiple file selection for conversion ([#14](https://github.com/qs990lab/markdown-snapshot-pdf-extension/issues/14))
+  - Note: MD file merging for conversion is not supported
+- Font rendering improved with Noto Sans fonts ([#15](https://github.com/qs990lab/markdown-snapshot-pdf-extension/issues/15))
+
+### Updated
+- Mermaid library updated to v11.12.2 (from v11.10.1)
+- Puppeteer library updated to v24.34.0 (from v24.29.0)
+
 ## [1.0.6] - 2025-12-21
 
 ### Fixed
@@ -17,7 +28,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fixed code containing $ breaks output in MD files ([#13](https://github.com/qs990lab/markdown-snapshot-pdf-extension/issues/13))
 
 ### Updated
-- KaTeX library updated to v0.16.27 (from v0.16.22)
+- ~~KaTeX library updated to v0.16.27 (from v0.16.22)~~ (KaTeX remains at v0.16.22)
 - Marked library updated to v17.0.1 (from v16.2.1)
 - Puppeteer library updated to v24.29.0 (from v24.17.0)
 

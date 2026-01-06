@@ -12,12 +12,12 @@ A VSCode extension that converts Markdown files (including Mermaid diagrams) to 
 - **Single-page PDF output** - Perfect for reports, presentations, and documentation
 - **Multi-page PDF output** - Traditional document conversion
 - Convert Markdown files to high-quality PDF documents
-- **Latest Mermaid diagram support** (v11.12.0)
+- **Latest Mermaid diagram support** (v11.12.2)
   - mindmap (Mind Maps)
   - architecture-beta (Architecture Diagrams)
   - xychart-beta (XY Charts)
   - Flowcharts with images
-- **High-quality LaTeX math rendering** (KaTeX v0.16.27)
+- **High-quality LaTeX math rendering** (KaTeX v0.16.22)
   - Inline math: `$E = mc^2$`
   - Display math: `$$...$$`
   - Math blocks: ````math`
@@ -43,16 +43,15 @@ sudo apt install -y libnss3-dev libxss1 libxtst6 libxrandr2 libasound2-dev libpa
 
 ### Ubuntu 24.04
 
-For Ubuntu 24.04, additional libraries and fonts are required:
+For Ubuntu 24.04, additional libraries and npm are required:
 
 ```bash
-# Required libraries
+# Install npm first (required for Puppeteer)
 sudo apt update
-sudo apt install -y libatk-bridge2.0-0 libdrm2 libxcomposite1 libxdamage1 libxrandr2 libgbm1 libxss1 libasound2t64 libcups2t64 libxfixes3 libcairo2 libpango-1.0-0 libpangocairo-1.0-0
+sudo apt install -y npm
 
-# CJK and emoji fonts
-sudo apt install fonts-noto-cjk -y
-sudo apt install fonts-noto-color-emoji -y
+# Required libraries
+sudo apt install -y libatk-bridge2.0-0 libdrm2 libxcomposite1 libxdamage1 libxrandr2 libgbm1 libxss1 libasound2t64 libcups2t64 libxfixes3 libcairo2 libpango-1.0-0 libpangocairo-1.0-0
 ```
 
 After installation, reload the VSCode window (`Ctrl+Shift+P` → "Developer: Reload Window").
@@ -115,10 +114,10 @@ In completely offline environments, local Mermaid libraries are automatically us
 
 ## 🔧 Technical Specifications
 
-- **Mermaid Version**: v11.12.0 (Latest)
-- **KaTeX Version**: v0.16.27 (Latest)
+- **Mermaid Version**: v11.12.2 (Latest)
+- **KaTeX Version**: v0.16.22 (Latest)
 
-- **PDF Engine**: Puppeteer (Headless Chrome) v24.29.0
+- **PDF Engine**: Puppeteer (Headless Chrome) v24.34.0
 - **Markdown Parser**: Marked v17.0.1
 
 ## 📄 License
@@ -131,11 +130,11 @@ Copyright 2025 Shima
 
 This extension bundles the following third-party libraries:
 
-- **KaTeX v0.16.27** - MIT License
+- **KaTeX v0.16.22** - MIT License
   - Copyright (c) 2013-2020 Khan Academy and other contributors
   - [License](https://github.com/KaTeX/KaTeX/blob/main/LICENSE)
 
-- **Mermaid v11.12.0** - MIT License  
+- **Mermaid v11.12.2** - MIT License  
   - Copyright (c) 2014-2022 Knut Sveidqvist
   - [License](https://github.com/mermaid-js/mermaid/blob/develop/LICENSE)
 
