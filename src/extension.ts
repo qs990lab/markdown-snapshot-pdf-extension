@@ -32,9 +32,9 @@ async function handleMultipleFiles(context: vscode.ExtensionContext, onePage: bo
 
         vscode.window.showInformationMessage(`Converting ${markdownFiles.length} files to PDF...`);
         
-        // 並列処理で全ファイルを変換
+        // 並列処理で全ファイルを変換（競合回避済み）
         const results = await Promise.allSettled(
-            markdownFiles.map(fileUri => convertMarkdownToPdf(context, onePage, fileUri, true))
+            markdownFiles.map((fileUri, index) => convertMarkdownToPdf(context, onePage, fileUri, true, index))
         );
         
         const successCount = results.filter(r => r.status === 'fulfilled').length;
@@ -54,11 +54,11 @@ async function handleMultipleFiles(context: vscode.ExtensionContext, onePage: bo
         }
     } else {
         // 単一ファイル処理
-        await convertMarkdownToPdf(context, onePage, uri, false);
+        await convertMarkdownToPdf(context, onePage, uri, false, 0);
     }
 }
 
-async function convertMarkdownToPdf(context: vscode.ExtensionContext, onePage: boolean = false, uri?: vscode.Uri, suppressMessage: boolean = false) {
+async function convertMarkdownToPdf(context: vscode.ExtensionContext, onePage: boolean = false, uri?: vscode.Uri, suppressMessage: boolean = false, processIndex: number = 0) {
     let filePath: string;
     
     // エクスプローラーから右クリックされた場合はuriを使用
@@ -94,7 +94,9 @@ async function convertMarkdownToPdf(context: vscode.ExtensionContext, onePage: b
     const outputPath = path.join(fileDir, `${fileName}.pdf`);
 
     try {
-        vscode.window.showInformationMessage(onePage ? 'Converting to PDF (1 page)...' : 'Converting to PDF...');
+        if (!suppressMessage) {
+            vscode.window.showInformationMessage(onePage ? 'Converting to PDF (1 page)...' : 'Converting to PDF...');
+        }
 
         // First, try to ensure Puppeteer is properly set up
         await ensurePuppeteerSetup(context);
@@ -102,12 +104,14 @@ async function convertMarkdownToPdf(context: vscode.ExtensionContext, onePage: b
         // Use local md-to-pdf library
         const mdToPdf = require(path.join(context.extensionPath, 'index.js'));
         
-        // Configure options for one-page PDF
+        // Configure options for one-page PDF with unique identifier
         const config = onePage ? {
             dest: outputPath,
-            onePage: true
+            onePage: true,
+            processIndex: processIndex  // 並列処理用の識別子
         } : {
-            dest: outputPath
+            dest: outputPath,
+            processIndex: processIndex  // 並列処理用の識別子
         };
         
         const result = await mdToPdf(filePath, config);
@@ -131,7 +135,9 @@ async function convertMarkdownToPdf(context: vscode.ExtensionContext, onePage: b
                 await setupPuppeteerManually(context);
             }
         } else {
-            vscode.window.showErrorMessage(`PDF conversion failed: ${error.message}`);
+            if (!suppressMessage) {
+                vscode.window.showErrorMessage(`PDF conversion failed: ${error.message}`);
+            }
         }
     }
 }
