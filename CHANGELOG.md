@@ -18,7 +18,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Font rendering improved with Noto Sans fonts ([#15](https://github.com/qs990lab/markdown-snapshot-pdf-extension/issues/15))
 
 ### Updated
+- KaTeX library updated to v0.16.27 (from v0.16.22)
 - Mermaid library updated to v11.12.2 (from v11.10.1)
+- Marked library updated to v17.0.1 (from v16.2.1)
 - Puppeteer library updated to v24.34.0 (from v24.29.0)
 
 ## [1.0.6] - 2025-12-21

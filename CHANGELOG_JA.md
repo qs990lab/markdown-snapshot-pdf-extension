@@ -18,7 +18,9 @@
 - Noto Sansフォントによるフォント表示の改善 ([#15](https://github.com/qs990lab/markdown-snapshot-pdf-extension/issues/15))
 
 ### 更新
+- KaTeXライブラリをv0.16.27に更新（v0.16.22から）
 - Mermaidライブラリをv11.12.2に更新（v11.10.1から）
+- Markedライブラリをv17.0.1に更新（v16.2.1から）
 - Puppeteerライブラリをv24.34.0に更新（v24.29.0から）
 
 ## [1.0.6] - 2025-12-21

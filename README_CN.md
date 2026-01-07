@@ -17,7 +17,7 @@
   - architecture-beta（架构图）
   - xychart-beta（XY图表）
   - 带图片的流程图
-- **高质量LaTeX数学公式渲染**（KaTeX v0.16.22）
+- **高质量LaTeX数学公式渲染**（KaTeX v0.16.27）
   - 行内公式：`$E = mc^2$`
   - 显示公式：`$$...$$`
   - 数学代码块：````math`
@@ -115,7 +115,7 @@ export HTTPS_PROXY=http://proxy.company.com:8080
 ## 🔧 技术规格
 
 - **Mermaid版本**: v11.12.2（最新）
-- **KaTeX版本**: v0.16.22（最新）
+- **KaTeX版本**: v0.16.27（最新）
 
 - **PDF引擎**: Puppeteer（无头Chrome）v24.34.0
 - **Markdown解析器**: Marked v17.0.1
@@ -130,7 +130,7 @@ Copyright 2025 Shima
 
 此扩展包含以下第三方库：
 
-- **KaTeX v0.16.22** - MIT License
+- **KaTeX v0.16.27** - MIT License
   - Copyright (c) 2013-2020 Khan Academy and other contributors
   - [License](https://github.com/KaTeX/KaTeX/blob/main/LICENSE)
 
