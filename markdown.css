@@ -160,20 +160,8 @@ table tr {
 
 /* Mermaid diagrams - ensure they fit within page width */
 .mermaid {
-	max-width: 100% !important;
-	width: auto !important;
-	height: auto !important;
-	overflow: visible !important;
-	display: block !important;
-	margin: 1em auto !important;
-}
-
-.mermaid svg {
-	max-width: 100% !important;
-	width: auto !important;
-	height: auto !important;
-	display: block !important;
-	margin: 0 auto !important;
+	max-width: 100%;
+	height: auto;
 }
 
 /* For one-page PDFs - ensure content doesn't break across pages */
