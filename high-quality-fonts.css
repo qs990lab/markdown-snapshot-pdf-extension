@@ -115,14 +115,14 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Code font configuration with proper monospace handling */
 code, pre, kbd, samp, tt {
-    font-family: 'JetBrains Mono', 'SF Mono', 'Monaco', 'Consolas', 'Courier New', 'Noto Sans Mono CJK JP', 'Noto Sans Mono CJK SC', 'Chinese Code', 'Emoji Unified', 'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji', monospace !important;
+    font-family: 'JetBrains Mono', 'SF Mono', 'Monaco', 'Consolas', 'Courier New', 'Noto Sans JP', 'Noto Sans SC', 'Noto Sans TC', 'Noto Sans KR', 'Chinese Unified', 'Japanese Unified', 'Chinese Code', 'Emoji Unified', 'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji', monospace !important;
     font-feature-settings: "liga" 1, "calt" 1;
     font-variant-ligatures: common-ligatures;
 }
 
 /* Force proper monospace font in code blocks */
 pre, code {
-    font-family: 'JetBrains Mono', 'SF Mono', 'Monaco', 'Consolas', 'Courier New', 'Noto Sans Mono CJK JP', 'Noto Sans Mono CJK SC', 'Chinese Code', 'Emoji Unified', 'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji', monospace !important;
+    font-family: 'JetBrains Mono', 'SF Mono', 'Monaco', 'Consolas', 'Courier New', 'Noto Sans JP', 'Noto Sans SC', 'Noto Sans TC', 'Noto Sans KR', 'Chinese Unified', 'Japanese Unified', 'Chinese Code', 'Emoji Unified', 'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji', monospace !important;
 }
 
 /* All text inside code blocks */
