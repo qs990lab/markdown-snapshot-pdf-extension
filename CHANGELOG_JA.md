@@ -10,6 +10,19 @@
 このフォーマットは [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) に基づいており、
 このプロジェクトは [Semantic Versioning](https://semver.org/spec/v2.0.0.html) に準拠しています。
 
+## [1.0.7] - 2026-01-10
+
+### 修正
+- 複数ファイル選択での変換対応 ([#14](https://github.com/qs990lab/markdown-snapshot-pdf-extension/issues/14))
+  - 注意：MDファイルの結合変換には対応していません
+- Noto Sansフォントによるフォント表示の改善 ([#15](https://github.com/qs990lab/markdown-snapshot-pdf-extension/issues/15))
+
+### 更新
+- KaTeXライブラリをv0.16.27に更新（v0.16.22から）
+- Mermaidライブラリをv11.12.2に更新（v11.10.1から）
+- Markedライブラリをv17.0.1に更新（v16.2.1から）
+- Puppeteerライブラリをv24.34.0に更新（v24.29.0から）
+
 ## [1.0.6] - 2025-12-21
 
 ### 修正
@@ -17,7 +30,7 @@
 - MDファイル内の$を含むコードが出力を破損する問題を修正 ([#13](https://github.com/qs990lab/markdown-snapshot-pdf-extension/issues/13))
 
 ### 更新
-- KaTeXライブラリをv0.16.27に更新（v0.16.22から）
+- ~~KaTeXライブラリをv0.16.27に更新（v0.16.22から）~~ （KaTeXはv0.16.22のまま）
 - Markedライブラリをv17.0.1に更新（v16.2.1から）
 - Puppeteerライブラリをv24.29.0に更新（v24.17.0から）
 

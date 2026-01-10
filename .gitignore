@@ -15,7 +15,7 @@ yarn-error.log*
 # VSCode
 .vscode-test/
 .vscode/settings.json
-.vscode/launch.json
+# .vscode/launch.json
 .vscode/extensions.json
 
 # OS generated files

@@ -12,7 +12,7 @@ VSCodeでMarkdownファイル（Mermaid図を含む）を高品質なPDFドキ�
 - **1ページPDF出力** - レポート、プレゼンテーション、ドキュメントに最適
 - **複数ページPDF出力** - 従来のドキュメント変換
 - Markdownファイルを高品質なPDFドキュメントに変換
-- **最新のMermaid図表に対応**（v11.12.0）
+- **最新のMermaid図表に対応**（v11.12.2）
   - mindmap（マインドマップ）
   - architecture-beta（アーキテクチャ図）
   - xychart-beta（XYチャート）
@@ -43,16 +43,15 @@ sudo apt install -y libnss3-dev libxss1 libxtst6 libxrandr2 libasound2-dev libpa
 
 ### Ubuntu 24.04
 
-Ubuntu 24.04では、追加のライブラリとフォントが必要です：
+Ubuntu 24.04では、追加のライブラリとnpmが必要です：
 
 ```bash
-# 必要なライブラリ
+# npmを最初にインストール（Puppeteerに必要）
 sudo apt update
-sudo apt install -y libatk-bridge2.0-0 libdrm2 libxcomposite1 libxdamage1 libxrandr2 libgbm1 libxss1 libasound2t64 libcups2t64 libxfixes3 libcairo2 libpango-1.0-0 libpangocairo-1.0-0
+sudo apt install -y npm
 
-# CJKと絵文字フォント
-sudo apt install fonts-noto-cjk -y
-sudo apt install fonts-noto-color-emoji -y
+# 必要なライブラリ
+sudo apt install -y libatk-bridge2.0-0 libdrm2 libxcomposite1 libxdamage1 libxrandr2 libgbm1 libxss1 libasound2t64 libcups2t64 libxfixes3 libcairo2 libpango-1.0-0 libpangocairo-1.0-0
 ```
 
 インストール後、VSCodeウィンドウをリロードしてください（`Ctrl+Shift+P` → "Developer: Reload Window"）。
@@ -115,10 +114,10 @@ export HTTPS_PROXY=http://proxy.company.com:8080
 
 ## 🔧 技術仕様
 
-- **Mermaidバージョン**: v11.12.0（最新）
+- **Mermaidバージョン**: v11.12.2（最新）
 - **KaTeXバージョン**: v0.16.27（最新）
 
-- **PDFエンジン**: Puppeteer（Headless Chrome）v24.29.0
+- **PDFエンジン**: Puppeteer（Headless Chrome）v24.34.0
 - **Markdownパーサー**: Marked v17.0.1
 
 ## 📄 ライセンス
@@ -135,7 +134,7 @@ Copyright 2025 Shima
   - Copyright (c) 2013-2020 Khan Academy and other contributors
   - [License](https://github.com/KaTeX/KaTeX/blob/main/LICENSE)
 
-- **Mermaid v11.12.0** - MIT License  
+- **Mermaid v11.12.2** - MIT License  
   - Copyright (c) 2014-2022 Knut Sveidqvist
   - [License](https://github.com/mermaid-js/mermaid/blob/develop/LICENSE)
 

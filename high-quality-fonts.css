@@ -2,7 +2,8 @@
 
 /* Import high-quality web fonts - ゴシック体のみ */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&display=swap');
 
 /* Font face declarations for offline fallback */
 @font-face {
@@ -29,10 +30,20 @@
     font-display: swap;
 }
 
+/* Emoji font face with unicode-range */
+@font-face {
+    font-family: 'Emoji Unified';
+    src: local('Noto Color Emoji'), local('Apple Color Emoji'), local('Segoe UI Emoji'), local('Twemoji Mozilla'), local('EmojiOne Color');
+    unicode-range: U+1F600-1F64F, U+1F300-1F5FF, U+1F680-1F6FF, U+1F1E0-1F1FF, U+2600-26FF, U+2700-27BF, U+1F900-1F9FF, U+1F018-1F270, U+238C, U+2194-2199, U+21A9-21AA, U+231A-231B, U+2328, U+23CF, U+23E9-23F3, U+25FD-25FE, U+2614-2615, U+2648-2653, U+267F, U+2693, U+26A1, U+26AA-26AB, U+26BD-26BE, U+26C4-26C5, U+26CE, U+26D4, U+26EA, U+26F2-26F3, U+26F5, U+26FA, U+26FD, U+2705, U+270A-270B, U+2728, U+274C, U+274E, U+2753-2755, U+2757, U+2795-2797, U+27B0, U+27BF, U+2B1B-2B1C, U+2B50, U+2B55;
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
 /* Chinese font face with unicode-range - SC priority */
 @font-face {
     font-family: 'Chinese Unified';
-    src: local('Noto Sans SC'), local('Source Han Sans SC'), local('PingFang SC'), local('Microsoft YaHei UI'), local('Microsoft YaHei');
+    src: local('Noto Sans SC'), local('Noto Sans TC'), local('Source Han Sans SC'), local('Source Han Sans TC'), local('PingFang SC'), local('PingFang TC'), local('Microsoft YaHei UI'), local('Microsoft YaHei');
     unicode-range: U+4E00-9FFF, U+3400-4DBF, U+20000-2A6DF, U+2A700-2B73F, U+2B740-2B81F, U+2B820-2CEAF, U+F900-FAFF, U+2F800-2FA1F;
     font-weight: 400;
     font-style: normal;
@@ -42,7 +53,7 @@
 /* Chinese font face for code blocks - force SC variant */
 @font-face {
     font-family: 'Chinese Code';
-    src: local('Noto Sans SC'), local('Source Han Sans SC'), local('PingFang SC'), local('Microsoft YaHei UI');
+    src: local('Noto Sans SC'), local('Noto Sans TC'), local('Source Han Sans SC'), local('Source Han Sans TC'), local('PingFang SC'), local('PingFang TC'), local('Microsoft YaHei UI');
     unicode-range: U+4E00-9FFF, U+3400-4DBF, U+F900-FAFF;
     font-weight: 400;
     font-style: normal;
@@ -64,8 +75,9 @@
     --font-sans: 'Noto Sans JP', 'Japanese Unified', 'Noto Sans JP Fallback', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic UI', 'Meiryo UI', sans-serif;
     --font-serif: 'Noto Sans JP', 'Japanese Unified', 'Noto Sans JP Fallback', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic UI', 'Meiryo UI', sans-serif;
     --font-mono: 'JetBrains Mono', 'JetBrains Mono Fallback', 'SF Mono', 'Menlo', 'Consolas', 'Monaco', 'Courier New', monospace;
-    --font-cjk-sc: 'Chinese Unified', 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    --font-cjk-sc: 'Chinese Unified', 'Noto Sans SC', 'Noto Sans TC', 'PingFang SC', 'PingFang TC', 'Microsoft YaHei', sans-serif;
     --font-cjk-kr: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+    --font-emoji: 'Emoji Unified', 'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji', 'Twemoji Mozilla', 'EmojiOne Color';
 }
 
 /* Enhanced font rendering */
@@ -77,35 +89,40 @@
     font-variant-ligatures: common-ligatures;
 }
 
-/* Body font configuration with CJK character detection */
+/* Body font configuration with proper ASCII character handling */
 body {
-    font-family: var(--font-sans), var(--font-cjk-sc);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, 'Noto Sans JP', 'Noto Sans SC', 'Noto Sans TC', 'Noto Sans KR', 'Chinese Unified', 'Japanese Unified', 'Emoji Unified', 'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji', sans-serif;
     font-weight: 400;
-    letter-spacing: 0.01em;
+    letter-spacing: 0;
 }
 
-/* Universal font stack with Chinese priority for CJK documents */
+/* Universal font stack with proper ASCII character handling */
 * {
     font-family: inherit;
 }
 
-/* Heading font configuration - ゴシック体に統一 */
+/* Ensure proper ASCII character rendering */
+*, *::before, *::after {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, 'Noto Sans JP', 'Noto Sans SC', 'Noto Sans TC', 'Noto Sans KR', 'Chinese Unified', 'Japanese Unified', 'Emoji Unified', 'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji', sans-serif;
+}
+
+/* Heading font configuration with proper ASCII handling */
 h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-sans);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, 'Noto Sans JP', 'Noto Sans SC', 'Noto Sans TC', 'Noto Sans KR', 'Chinese Unified', 'Japanese Unified', 'Emoji Unified', 'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji', sans-serif;
     font-weight: 600;
     letter-spacing: -0.01em;
 }
 
-/* Code font configuration */
+/* Code font configuration with proper monospace handling */
 code, pre, kbd, samp, tt {
-    font-family: 'Chinese Code', var(--font-mono) !important;
+    font-family: 'JetBrains Mono', 'SF Mono', 'Monaco', 'Consolas', 'Courier New', 'Noto Sans JP', 'Noto Sans SC', 'Noto Sans TC', 'Noto Sans KR', 'Chinese Unified', 'Japanese Unified', 'Chinese Code', 'Emoji Unified', 'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji', monospace !important;
     font-feature-settings: "liga" 1, "calt" 1;
     font-variant-ligatures: common-ligatures;
 }
 
-/* Force Chinese SC font in code blocks */
+/* Force proper monospace font in code blocks */
 pre, code {
-    font-family: 'Chinese Code', 'Noto Sans SC', 'Source Han Sans SC', 'JetBrains Mono', monospace !important;
+    font-family: 'JetBrains Mono', 'SF Mono', 'Monaco', 'Consolas', 'Courier New', 'Noto Sans JP', 'Noto Sans SC', 'Noto Sans TC', 'Noto Sans KR', 'Chinese Unified', 'Japanese Unified', 'Chinese Code', 'Emoji Unified', 'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji', monospace !important;
 }
 
 /* All text inside code blocks */
@@ -115,36 +132,52 @@ pre *, code * {
 
 /* Language-specific font optimization */
 :lang(ja) {
-    font-family: var(--font-sans);
+    font-family: 'Noto Sans JP', 'Emoji Unified', 'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     line-height: 1.8;
     letter-spacing: 0.02em;
 }
 
 :lang(zh-CN), :lang(zh-Hans) {
-    font-family: var(--font-cjk-sc) !important;
+    font-family: 'Noto Sans SC', 'Emoji Unified', 'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
     line-height: 1.7;
     font-weight: 400;
 }
 
 :lang(zh-TW), :lang(zh-Hant) {
-    font-family: 'Noto Sans TC', 'Source Han Sans TC', 'PingFang TC', 'Microsoft JhengHei UI', 'Microsoft JhengHei', sans-serif !important;
+    font-family: 'Noto Sans TC', 'Source Han Sans TC', 'PingFang TC', 'Microsoft JhengHei UI', 'Microsoft JhengHei', 'Emoji Unified', 'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji', sans-serif !important;
+    line-height: 1.7;
+    font-weight: 400;
+}
+
+:lang(zh-HK), :lang(zh-Hant-HK) {
+    font-family: 'Noto Sans TC', 'Source Han Sans TC', 'PingFang TC', 'Microsoft JhengHei UI', 'Microsoft JhengHei', 'Emoji Unified', 'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji', sans-serif !important;
     line-height: 1.7;
     font-weight: 400;
 }
 
 :lang(ko) {
-    font-family: var(--font-cjk-kr);
+    font-family: 'Noto Sans KR', 'Emoji Unified', 'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     line-height: 1.7;
 }
 
 /* Document-level Chinese font enforcement */
 html[lang="zh-CN"], html[lang="zh-Hans"],
 body[lang="zh-CN"], body[lang="zh-Hans"] {
-    font-family: var(--font-cjk-sc) !important;
+    font-family: 'Noto Sans SC', 'Emoji Unified', 'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+}
+
+html[lang="zh-TW"], html[lang="zh-Hant"], html[lang="zh-HK"], html[lang="zh-Hant-HK"],
+body[lang="zh-TW"], body[lang="zh-Hant"], body[lang="zh-HK"], body[lang="zh-Hant-HK"] {
+    font-family: 'Noto Sans TC', 'Source Han Sans TC', 'PingFang TC', 'Microsoft JhengHei UI', 'Microsoft JhengHei', 'Emoji Unified', 'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji', sans-serif !important;
 }
 
 html[lang="zh-CN"] *, html[lang="zh-Hans"] *,
 body[lang="zh-CN"] *, body[lang="zh-Hans"] * {
+    font-family: inherit !important;
+}
+
+html[lang="zh-TW"] *, html[lang="zh-Hant"] *, html[lang="zh-HK"] *, html[lang="zh-Hant-HK"] *,
+body[lang="zh-TW"] *, body[lang="zh-Hant"] *, body[lang="zh-HK"] *, body[lang="zh-Hant-HK"] * {
     font-family: inherit !important;
 }
 
@@ -167,7 +200,7 @@ body[lang="zh-CN"] *, body[lang="zh-Hans"] * {
 @media print {
     * {
         -webkit-print-color-adjust: exact;
-        color-adjust: exact;
+        print-color-adjust: exact;
     }
     
     body {
@@ -190,30 +223,55 @@ body[lang="zh-CN"] *, body[lang="zh-Hans"] * {
 
 /* Chinese character unification */
 .zh-cn, .zh-hans, [lang="zh-CN"], [lang="zh-Hans"] {
-    font-family: var(--font-cjk-sc) !important;
+    font-family: 'Noto Sans SC', 'Emoji Unified', 'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
 }
 
 .zh-tw, .zh-hant, [lang="zh-TW"], [lang="zh-Hant"] {
-    font-family: 'Noto Sans TC', 'Source Han Sans TC', 'PingFang TC', 'Microsoft JhengHei UI', 'Microsoft JhengHei', sans-serif !important;
+    font-family: 'Noto Sans TC', 'Source Han Sans TC', 'PingFang TC', 'Microsoft JhengHei UI', 'Microsoft JhengHei', 'Emoji Unified', 'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji', sans-serif !important;
 }
 
-/* Mermaid diagram font optimization */
-.mermaid {
-    font-family: var(--font-sans) !important;
+.zh-hk, .zh-hant-hk, [lang="zh-HK"], [lang="zh-Hant-HK"] {
+    font-family: 'Noto Sans TC', 'Source Han Sans TC', 'PingFang TC', 'Microsoft JhengHei UI', 'Microsoft JhengHei', 'Emoji Unified', 'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji', sans-serif !important;
 }
 
-.mermaid text {
-    font-family: var(--font-sans) !important;
+/* Mermaid mindmap specific adjustments */
+.mermaid .mindmap-node text {
+    font-size: 11px !important;
+    text-anchor: middle !important;
+}
+
+.mermaid .mindmap-node {
+    overflow: visible !important;
 }
 
 /* Table font optimization */
 table {
     font-variant-numeric: tabular-nums;
+    font-family: 'Noto Sans SC', 'Noto Sans TC', 'Noto Sans JP', 'Noto Sans KR', 'Chinese Unified', 'Japanese Unified', 'Emoji Unified', 'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+table td, table th {
+    font-family: inherit;
+}
+
+/* List font optimization */
+ul, ol, li {
+    font-family: 'Noto Sans SC', 'Noto Sans TC', 'Noto Sans JP', 'Noto Sans KR', 'Chinese Unified', 'Japanese Unified', 'Emoji Unified', 'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Paragraph and text elements */
+p, span, div, blockquote, strong, em, b, i {
+    font-family: inherit;
 }
 
 /* Math font optimization (for KaTeX) */
 .katex {
-    font-family: "KaTeX_Main", var(--font-serif);
+    font-family: "KaTeX_Main", 'Emoji Unified', 'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji', var(--font-serif);
+}
+
+/* Input and form elements */
+input, textarea, select, button {
+    font-family: 'Noto Sans SC', 'Noto Sans TC', 'Noto Sans JP', 'Noto Sans KR', 'Chinese Unified', 'Japanese Unified', 'Emoji Unified', 'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
 /* Ensure consistent font loading */

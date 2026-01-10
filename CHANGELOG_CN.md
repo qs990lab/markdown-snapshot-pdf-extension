@@ -10,6 +10,19 @@
 格式基于 [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)，
 此项目遵循 [Semantic Versioning](https://semver.org/spec/v2.0.0.html)。
 
+## [1.0.7] - 2026-01-10
+
+### 修复
+- 多文件选择转换支持 ([#14](https://github.com/qs990lab/markdown-snapshot-pdf-extension/issues/14))
+  - 注意：不支持MD文件合并转换
+- 使用Noto Sans字体改善字体渲染 ([#15](https://github.com/qs990lab/markdown-snapshot-pdf-extension/issues/15))
+
+### 更新
+- KaTeX库更新至v0.16.27（从v0.16.22）
+- Mermaid库更新至v11.12.2（从v11.10.1）
+- Marked库更新至v17.0.1（从v16.2.1）
+- Puppeteer库更新至v24.34.0（从v24.29.0）
+
 ## [1.0.6] - 2025-12-21
 
 ### 修复
@@ -17,7 +30,7 @@
 - 修复MD文件中包含$的代码破坏输出的问题 ([#13](https://github.com/qs990lab/markdown-snapshot-pdf-extension/issues/13))
 
 ### 更新
-- KaTeX库更新至v0.16.27（从v0.16.22）
+- ~~KaTeX库更新至v0.16.27（从v0.16.22）~~ （KaTeX保持在v0.16.22）
 - Marked库更新至v17.0.1（从v16.2.1）
 - Puppeteer库更新至v24.29.0（从v24.17.0）
 

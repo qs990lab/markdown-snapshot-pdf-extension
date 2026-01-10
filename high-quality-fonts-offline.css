@@ -1,0 +1,123 @@
+/* High-Quality Font Configuration for PDF Generation - Offline Version */
+
+/* Base font stack - システムフォント優先 */
+body, html {
+    font-family: 
+        /* Windows system fonts */
+        'Yu Gothic UI', 'Meiryo UI', 'MS UI Gothic',
+        /* macOS system fonts */
+        'Hiragino Sans', 'Hiragino Kaku Gothic ProN',
+        /* Web fonts (if available) */
+        'Noto Sans JP', 'Noto Sans SC', 'Noto Sans KR',
+        /* Generic fallbacks */
+        -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif,
+        /* Emoji */
+        'Segoe UI Emoji', 'Noto Color Emoji', 'Apple Color Emoji';
+    font-feature-settings: "liga" 1, "kern" 1;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 
+        'Yu Gothic UI', 'Meiryo UI', 'MS UI Gothic',
+        'Hiragino Sans', 'Hiragino Kaku Gothic ProN',
+        'Noto Sans JP', 'Noto Sans SC', 'Noto Sans KR',
+        -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif,
+        'Segoe UI Emoji', 'Noto Color Emoji';
+    font-weight: 600;
+}
+
+/* Code blocks and inline code */
+code, pre, .hljs {
+    font-family: 
+        /* Windows monospace fonts */
+        'Consolas', 'Courier New',
+        /* macOS monospace fonts */
+        'SF Mono', 'Monaco', 'Menlo',
+        /* Web fonts */
+        'JetBrains Mono', 'Fira Code',
+        /* Generic monospace */
+        'Roboto Mono', monospace,
+        /* Emoji support */
+        'Segoe UI Emoji', 'Noto Color Emoji';
+    font-feature-settings: "liga" 0;
+}
+
+/* Serif text (if used) */
+.serif, blockquote {
+    font-family: 
+        'Yu Mincho', 'MS Mincho',
+        'Hiragino Mincho ProN',
+        'Noto Serif JP',
+        'Times New Roman', 'Georgia', serif,
+        'Segoe UI Emoji', 'Noto Color Emoji';
+}
+
+/* Japanese text specific styling */
+.japanese, [lang="ja"] {
+    font-family: 
+        'Yu Gothic UI', 'Meiryo UI', 'MS UI Gothic',
+        'Noto Sans JP Fallback',
+        sans-serif, 'Emoji Unified';
+}
+
+/* Chinese text specific styling */
+.chinese, [lang="zh"], [lang="zh-CN"], [lang="zh-TW"] {
+    font-family: 
+        'Microsoft YaHei UI', 'Microsoft YaHei', 'SimSun',
+        'Chinese Unified',
+        sans-serif, 'Emoji Unified';
+}
+
+/* Korean text specific styling */
+.korean, [lang="ko"] {
+    font-family: 
+        'Malgun Gothic', 'Gulim',
+        'Korean Unified',
+        sans-serif, 'Emoji Unified';
+}
+
+/* Emoji specific styling */
+.emoji {
+    font-family: 'Emoji Unified', 'Segoe UI Emoji', 'Noto Color Emoji';
+    font-variant-emoji: emoji;
+}
+
+/* High-quality rendering settings */
+* {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Print-specific optimizations */
+@media print {
+    body, html {
+        font-size: 12pt;
+        line-height: 1.4;
+    }
+    
+    h1 { font-size: 18pt; }
+    h2 { font-size: 16pt; }
+    h3 { font-size: 14pt; }
+    h4, h5, h6 { font-size: 12pt; }
+    
+    code, pre {
+        font-size: 10pt;
+    }
+}
+
+/* One-page specific styling */
+.one-page {
+    font-size: 11pt;
+    line-height: 1.3;
+}
+
+.one-page h1 { font-size: 16pt; }
+.one-page h2 { font-size: 14pt; }
+.one-page h3 { font-size: 12pt; }
+.one-page h4, .one-page h5, .one-page h6 { font-size: 11pt; }
+.one-page code, .one-page pre { font-size: 9pt; }

@@ -7,12 +7,13 @@ html {
 }
 
 body {
-	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
-		'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
+		'Fira Sans', 'Droid Sans', 'Helvetica Neue', Arial, sans-serif;
 	line-height: 1.6;
 	font-size: 0.6875em; /* 11 pt */
 	color: #111;
 	margin: 0;
+	letter-spacing: 0;
 }
 
 body > :first-child {
@@ -81,10 +82,11 @@ li code {
 	background-color: #f1f1f1;
 	padding: 0.1em 0.375em;
 	border-radius: 0.25em;
-	font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+	font-family: 'JetBrains Mono', 'SF Mono', 'Monaco', 'Consolas', 'Courier New', monospace;
 	font-size: 0.9em;
 	color: #d73a49;
 	border: 1px solid #e1e4e8;
+	letter-spacing: 0;
 }
 
 /* コードブロック - highlight.jsと競合しないように調整 */
@@ -95,9 +97,10 @@ pre {
 	padding: 1em;
 	margin: 1em 0;
 	overflow-x: auto;
-	font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+	font-family: 'JetBrains Mono', 'SF Mono', 'Monaco', 'Consolas', 'Courier New', monospace;
 	font-size: 0.85em;
 	line-height: 1.45;
+	letter-spacing: 0;
 }
 
 /* highlight.jsが適用されていないコードブロックのフォールバック */
@@ -157,9 +160,8 @@ table tr {
 
 /* Mermaid diagrams - ensure they fit within page width */
 .mermaid {
-	max-width: 100% !important;
-	height: auto !important;
-	overflow: visible !important;
+	max-width: 100%;
+	height: auto;
 }
 
 /* For one-page PDFs - ensure content doesn't break across pages */
@@ -216,4 +218,23 @@ mark {
 	padding: 0.1em 0.2em;
 	border-radius: 3px;
 	font-weight: 500;
+}
+
+/* ASCII character width optimization */
+body, p, div, span, h1, h2, h3, h4, h5, h6 {
+	font-variant-numeric: normal;
+	font-stretch: normal;
+	font-kerning: auto;
+}
+
+/* Prevent excessive character spacing */
+* {
+	letter-spacing: 0 !important;
+	word-spacing: normal !important;
+}
+
+/* Specific fixes for ASCII characters */
+body {
+	font-feature-settings: "kern" 1, "liga" 0;
+	text-rendering: optimizeLegibility;
 }
