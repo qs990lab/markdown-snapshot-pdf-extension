@@ -10,7 +10,7 @@ All notable changes to the "Markdown Mermaid to PDF" extension will be documente
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.0.7] - 2026-01-06
+## [1.0.7] - 2026-01-10
 
 ### Fixed
 - Multiple file selection for conversion ([#14](https://github.com/qs990lab/markdown-snapshot-pdf-extension/issues/14))

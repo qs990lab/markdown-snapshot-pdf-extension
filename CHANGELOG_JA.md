@@ -10,7 +10,7 @@
 このフォーマットは [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) に基づいており、
 このプロジェクトは [Semantic Versioning](https://semver.org/spec/v2.0.0.html) に準拠しています。
 
-## [1.0.7] - 2026-01-06
+## [1.0.7] - 2026-01-10
 
 ### 修正
 - 複数ファイル選択での変換対応 ([#14](https://github.com/qs990lab/markdown-snapshot-pdf-extension/issues/14))
