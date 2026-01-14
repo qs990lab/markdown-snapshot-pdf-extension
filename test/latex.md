@@ -20,14 +20,14 @@ $kill_{B_4} = \{d_1, d_4\}$
 
 ## Transfer Function
 
-$f_2(f_1(x)) = g \text{ e } n_2 \cup (g \text{ e } n_1 \cup (x - kill_1) - kill_2)$
+$f_2(f_1(x)) = gen_2 \cup (gen_1 \cup (x - kill_1) - kill_2)$
 $= (gen_2 \cup (gen_1 - kill_2)) \cup (x - (kill_1 \cup kill_2))$
 
 ## General Rule
 
 This rule extends to a block consisting of any number of statements. Suppose block $B$ has $n$ statements, with transfer functions $f_i(x) = gen_i \cup (x - kill_i)$ for $i = 1, 2, \ldots, n$. Then the transfer function for block $B$ may be written as:
 
-$f_B(x) = g \text{ e } n_B \cup (x - kill_B),$
+$f_B(x) = gen_B \cup (x - kill_B),$
 
 where
 
