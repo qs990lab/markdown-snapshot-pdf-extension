@@ -150,6 +150,18 @@ Copyright 2025 Shima
   - Copyright (c) 2006, Ivan Sagalaev
   - [License](https://github.com/highlightjs/highlight.js/blob/main/LICENSE)
 
+### 数学字体
+
+此扩展通过Web字体使用以下字体进行LaTeX数学公式渲染：
+
+- **STIX Two Math** - SIL Open Font License (OFL) 1.1
+  - Copyright (c) 2001-2019 STI Pub Companies (AIP Publishing, American Chemical Society, American Mathematical Society, American Physical Society, Elsevier, IEEE)
+  - [License](https://github.com/stipub/stixfonts/blob/master/OFL.txt)
+
+- **Latin Modern Math** - GUST Font License (GFL)
+  - Copyright (c) GUST e-foundry
+  - [License](http://www.gust.org.pl/projects/e-foundry/licenses)
+
 ## 🛠️ 开发
 
 有关开发信息，请参阅：
