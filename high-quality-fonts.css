@@ -5,6 +5,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&display=swap');
 
+/* Import math fonts for better LaTeX rendering */
+@import url('https://fonts.googleapis.com/css2?family=STIX+Two+Math&display=swap');
+@import url('https://cdn.jsdelivr.net/npm/latin-modern-math@1.959.0/latinmodern-math.css');
+
 /* Font face declarations for offline fallback */
 @font-face {
     font-family: 'Noto Sans JP Fallback';
@@ -266,7 +270,34 @@ p, span, div, blockquote, strong, em, b, i {
 
 /* Math font optimization (for KaTeX) */
 .katex {
-    font-family: "KaTeX_Main", 'Emoji Unified', 'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji', var(--font-serif);
+    font-family: "STIX Two Math", "Latin Modern Math", "KaTeX_Main", "Times New Roman", serif !important;
+}
+
+.katex .mathnormal {
+    font-family: "STIX Two Math", "Latin Modern Math", "KaTeX_Main", "Times New Roman", serif !important;
+}
+
+.katex .mathit {
+    font-family: "STIX Two Math", "Latin Modern Math", "KaTeX_Main", "Times New Roman", serif !important;
+    font-style: italic;
+}
+
+.katex .mathrm {
+    font-family: "STIX Two Math", "Latin Modern Math", "KaTeX_Main", "Times New Roman", serif !important;
+    font-style: normal;
+}
+
+.katex .mathbf {
+    font-family: "STIX Two Math", "Latin Modern Math", "KaTeX_Main", "Times New Roman", serif !important;
+    font-weight: bold;
+}
+
+.katex .mathsf {
+    font-family: "Noto Sans", "Arial", sans-serif !important;
+}
+
+.katex .mathtt {
+    font-family: "JetBrains Mono", "Consolas", "Courier New", monospace !important;
 }
 
 /* Input and form elements */

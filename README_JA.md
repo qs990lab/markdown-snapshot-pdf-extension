@@ -150,6 +150,18 @@ Copyright 2025 Shima
   - Copyright (c) 2006, Ivan Sagalaev
   - [License](https://github.com/highlightjs/highlight.js/blob/main/LICENSE)
 
+### 数式フォント
+
+この拡張機能は、LaTeX数式のレンダリングにウェブフォント経由で以下のフォントを使用しています：
+
+- **STIX Two Math** - SIL Open Font License (OFL) 1.1
+  - Copyright (c) 2001-2019 STI Pub Companies (AIP Publishing, American Chemical Society, American Mathematical Society, American Physical Society, Elsevier, IEEE)
+  - [License](https://github.com/stipub/stixfonts/blob/master/OFL.txt)
+
+- **Latin Modern Math** - GUST Font License (GFL)
+  - Copyright (c) GUST e-foundry
+  - [License](http://www.gust.org.pl/projects/e-foundry/licenses)
+
 ## 🛠️ 開発
 
 開発情報については以下をご覧ください：

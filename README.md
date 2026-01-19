@@ -150,6 +150,22 @@ This extension bundles the following third-party libraries:
   - Copyright (c) 2006, Ivan Sagalaev
   - [License](https://github.com/highlightjs/highlight.js/blob/main/LICENSE)
 
+### Math Fonts
+
+This extension uses the following fonts for LaTeX math rendering via web fonts:
+
+- **STIX Two Math** - SIL Open Font License (OFL) 1.1
+  - Copyright (c) 2001-2019 STI Pub Companies (AIP Publishing, American Chemical Society, American Mathematical Society, American Physical Society, Elsevier, IEEE)
+  - [License](https://github.com/stipub/stixfonts/blob/master/OFL.txt)
+
+- **STIX Two Math** - SIL Open Font License (OFL) 1.1
+  - Copyright (c) 2001-2019 STI Pub Companies (AIP Publishing, American Chemical Society, American Mathematical Society, American Physical Society, Elsevier, IEEE)
+  - [License](https://github.com/stipub/stixfonts/blob/master/OFL.txt)
+
+- **Latin Modern Math** - GUST Font License (GFL)
+  - Copyright (c) GUST e-foundry
+  - [License](http://www.gust.org.pl/projects/e-foundry/licenses)
+
 ## 🛠️ Development
 
 For development information, please see:

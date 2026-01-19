@@ -120,4 +120,34 @@ code, pre, .hljs {
 .one-page h2 { font-size: 14pt; }
 .one-page h3 { font-size: 12pt; }
 .one-page h4, .one-page h5, .one-page h6 { font-size: 11pt; }
-.one-page code, .one-page pre { font-size: 9pt; }
+/* Math font optimization (for KaTeX) - Offline fallbacks */
+.katex {
+    font-family: "Times New Roman", "Liberation Serif", "DejaVu Serif", "KaTeX_Main", serif !important;
+}
+
+.katex .mathnormal {
+    font-family: "Times New Roman", "Liberation Serif", "DejaVu Serif", "KaTeX_Main", serif !important;
+}
+
+.katex .mathit {
+    font-family: "Times New Roman", "Liberation Serif", "DejaVu Serif", "KaTeX_Main", serif !important;
+    font-style: italic;
+}
+
+.katex .mathrm {
+    font-family: "Times New Roman", "Liberation Serif", "DejaVu Serif", "KaTeX_Main", serif !important;
+    font-style: normal;
+}
+
+.katex .mathbf {
+    font-family: "Times New Roman", "Liberation Serif", "DejaVu Serif", "KaTeX_Main", serif !important;
+    font-weight: bold;
+}
+
+.katex .mathsf {
+    font-family: "Arial", "Liberation Sans", "DejaVu Sans", sans-serif !important;
+}
+
+.katex .mathtt {
+    font-family: "Consolas", "Liberation Mono", "DejaVu Sans Mono", "Courier New", monospace !important;
+}

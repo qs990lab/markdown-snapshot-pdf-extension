@@ -10,6 +10,11 @@
 このフォーマットは [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) に基づいており、
 このプロジェクトは [Semantic Versioning](https://semver.org/spec/v2.0.0.html) に準拠しています。
 
+## [1.0.8] - 2026-01-19
+
+### 改善
+- LaTeX数式フォントのレンダリングを専門的な数学フォント(STIX Two MathとLatin Modern Math)で改善 ([#18](https://github.com/qs990lab/markdown-snapshot-pdf-extension/issues/18))
+
 ## [1.0.7] - 2026-01-10
 
 ### 修正

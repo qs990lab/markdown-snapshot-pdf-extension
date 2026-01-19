@@ -10,6 +10,11 @@
 格式基于 [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)，
 此项目遵循 [Semantic Versioning](https://semver.org/spec/v2.0.0.html)。
 
+## [1.0.8] - 2026-01-19
+
+### 改进
+- 使用专业数学字体(STIX Two Math和Latin Modern Math)改进LaTeX数学公式字体渲染 ([#18](https://github.com/qs990lab/markdown-snapshot-pdf-extension/issues/18))
+
 ## [1.0.7] - 2026-01-10
 
 ### 修复
