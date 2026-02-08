@@ -10,6 +10,15 @@
 このフォーマットは [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) に基づいており、
 このプロジェクトは [Semantic Versioning](https://semver.org/spec/v2.0.0.html) に準拠しています。
 
+## [1.0.9] - 2026-02-08
+
+### 追加
+- 目次（TOC）サポート ([#22](https://github.com/qs990lab/markdown-snapshot-pdf-extension/issues/22))
+  - Markdownファイルの見出しから自動的に目次を生成
+  - ネストされた見出しレベル（H1-H6）をサポート
+  - PDFでセクションに移動できるクリック可能なリンク
+  - 注意：複雑なPDF（Mermaid図を含む場合など）では生成されない場合があります
+
 ## [1.0.8] - 2026-01-19
 
 ### 改善

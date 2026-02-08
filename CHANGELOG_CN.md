@@ -10,6 +10,15 @@
 格式基于 [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)，
 此项目遵循 [Semantic Versioning](https://semver.org/spec/v2.0.0.html)。
 
+## [1.0.9] - 2026-02-08
+
+### 新增
+- 目录（TOC）支持 ([#22](https://github.com/qs990lab/markdown-snapshot-pdf-extension/issues/22))
+  - 从Markdown文件的标题自动生成目录
+  - 支持嵌套标题级别（H1-H6）
+  - 可点击链接导航到PDF中的各个部分
+  - 注意：复杂PDF（例如包含Mermaid图表）可能不会生成目录
+
 ## [1.0.8] - 2026-01-19
 
 ### 改进

@@ -32,20 +32,11 @@ async function handleMultipleFiles(context: vscode.ExtensionContext, onePage: bo
 
         vscode.window.showInformationMessage(`Converting ${markdownFiles.length} files to PDF...`);
         
-        // 並列処理で全ファイルを変換（競合回避済み）
-        const results = await Promise.allSettled(
-            markdownFiles.map((fileUri, index) => convertMarkdownToPdf(context, onePage, fileUri, true, index))
-        );
+        // 並列数を4に制限して順次処理
+        const results = await processFilesWithLimit(context, onePage, markdownFiles, 4);
         
         const successCount = results.filter(r => r.status === 'fulfilled').length;
         const errorCount = results.filter(r => r.status === 'rejected').length;
-        
-        // エラーログ出力
-        results.forEach((result, index) => {
-            if (result.status === 'rejected') {
-                console.error(`Failed to convert ${markdownFiles[index].fsPath}:`, result.reason);
-            }
-        });
         
         if (errorCount === 0) {
             vscode.window.showInformationMessage(`Successfully converted ${successCount} files to PDF`);
@@ -56,6 +47,46 @@ async function handleMultipleFiles(context: vscode.ExtensionContext, onePage: bo
         // 単一ファイル処理
         await convertMarkdownToPdf(context, onePage, uri, false, 0);
     }
+}
+
+// 並列数を制限して処理（完了したものから順次次を開始）
+async function processFilesWithLimit(
+    context: vscode.ExtensionContext,
+    onePage: boolean,
+    files: vscode.Uri[],
+    limit: number
+): Promise<PromiseSettledResult<void>[]> {
+    const results: PromiseSettledResult<void>[] = new Array(files.length);
+    let nextIndex = 0;
+    let activeCount = 0;
+    
+    return new Promise((resolve) => {
+        const startNext = () => {
+            while (activeCount < limit && nextIndex < files.length) {
+                const currentIndex = nextIndex++;
+                activeCount++;
+                
+                convertMarkdownToPdf(context, onePage, files[currentIndex], true, currentIndex)
+                    .then(() => {
+                        results[currentIndex] = { status: 'fulfilled', value: undefined };
+                    })
+                    .catch((error) => {
+                        console.error(`Failed to convert ${files[currentIndex].fsPath}:`, error);
+                        results[currentIndex] = { status: 'rejected', reason: error };
+                    })
+                    .finally(() => {
+                        activeCount--;
+                        if (nextIndex < files.length) {
+                            startNext();
+                        } else if (activeCount === 0) {
+                            resolve(results);
+                        }
+                    });
+            }
+        };
+        
+        startNext();
+    });
 }
 
 async function convertMarkdownToPdf(context: vscode.ExtensionContext, onePage: boolean = false, uri?: vscode.Uri, suppressMessage: boolean = false, processIndex: number = 0) {
@@ -123,34 +154,36 @@ async function convertMarkdownToPdf(context: vscode.ExtensionContext, onePage: b
     } catch (error: any) {
         console.error('Conversion error:', error);
         
-        // Check if it's a Puppeteer setup required error
-        if (error.message && error.message.includes('PUPPETEER_SETUP_REQUIRED')) {
-            const action = await vscode.window.showInformationMessage(
-                'First time setup: Download Chromium browser for PDF conversion?',
-                'Yes, Download',
-                'Cancel'
-            );
-            
-            if (action === 'Yes, Download') {
-                await setupPuppeteerAutomatically(context);
-                // Retry conversion after setup
-                vscode.window.showInformationMessage('Setup completed. Please try PDF conversion again.');
-            }
-        } else if (error.message && error.message.includes('Could not find expected browser')) {
-            const action = await vscode.window.showErrorMessage(
-                'Chromium browser not found. Would you like to run Puppeteer setup?',
-                'Run Setup',
-                'Cancel'
-            );
-            
-            if (action === 'Run Setup') {
-                await setupPuppeteerAutomatically(context);
-            }
-        } else {
-            if (!suppressMessage) {
+        if (!suppressMessage) {
+            // Check if it's a Puppeteer setup required error
+            if (error.message && error.message.includes('PUPPETEER_SETUP_REQUIRED')) {
+                const action = await vscode.window.showInformationMessage(
+                    'First time setup required: Chromium browser needs to be downloaded for PDF conversion.\n\nThis is a one-time setup and will take a few minutes.',
+                    'Download Now',
+                    'Cancel'
+                );
+                
+                if (action === 'Download Now') {
+                    await setupPuppeteerAutomatically(context);
+                    vscode.window.showInformationMessage('✓ Setup completed! Please try PDF conversion again.');
+                }
+            } else if (error.message && error.message.includes('Could not find expected browser')) {
+                const action = await vscode.window.showErrorMessage(
+                    'Chromium browser not found.\n\nThis usually happens after extension updates or system changes.',
+                    'Run Setup',
+                    'Cancel'
+                );
+                
+                if (action === 'Run Setup') {
+                    await setupPuppeteerAutomatically(context);
+                }
+            } else {
                 vscode.window.showErrorMessage(`PDF conversion failed: ${error.message}`);
             }
         }
+        
+        // Re-throw error for batch processing to handle
+        throw error;
     }
 }
 
@@ -164,22 +197,22 @@ async function ensurePuppeteerSetup(context: vscode.ExtensionContext): Promise<v
         
         // Auto-setup for first time users
         const action = await vscode.window.showInformationMessage(
-            'First time setup: Download Chromium browser for PDF conversion?',
-            'Yes, Download',
+            'First time setup required: Chromium browser needs to be downloaded for PDF conversion.\n\nThis is a one-time setup and will take a few minutes.',
+            'Download Now',
             'Cancel'
         );
         
-        if (action === 'Yes, Download') {
+        if (action === 'Download Now') {
             await setupPuppeteerAutomatically(context);
         } else {
-            throw new Error('PDF conversion requires Chromium browser. Setup was cancelled.');
+            throw new Error('PDF conversion requires Chromium browser.\n\nPlease run the setup by:\n1. Opening Command Palette (Ctrl+Shift+P)\n2. Running "Markdown Snapshot PDF: Convert to PDF"\n3. Selecting "Download Now" when prompted');
         }
     }
 }
 
 async function setupPuppeteerAutomatically(context: vscode.ExtensionContext): Promise<void> {
     try {
-        vscode.window.showInformationMessage('Downloading Chromium browser...');
+        vscode.window.showInformationMessage('Downloading Chromium browser... This may take a few minutes.');
         
         const extensionPath = context.extensionPath;
         
@@ -187,17 +220,28 @@ async function setupPuppeteerAutomatically(context: vscode.ExtensionContext): Pr
         try {
             await execAsync('npm --version', { cwd: extensionPath });
         } catch (npmError) {
-            throw new Error('npm is required but not installed. Please install npm first:\nUbuntu: sudo apt install npm\nThen reload VSCode.');
+            const platform = process.platform;
+            let installInstructions = '';
+            
+            if (platform === 'linux') {
+                installInstructions = 'Ubuntu/Debian: sudo apt install npm\nFedora/RHEL: sudo dnf install npm';
+            } else if (platform === 'darwin') {
+                installInstructions = 'Install via Homebrew: brew install node';
+            } else if (platform === 'win32') {
+                installInstructions = 'Download from: https://nodejs.org/';
+            }
+            
+            throw new Error(`npm is required but not installed.\n\n${installInstructions}\n\nAfter installation, reload VSCode window (Ctrl+Shift+P → "Developer: Reload Window")`);
         }
         
         // Try to install Chromium via Puppeteer
         try {
             await execAsync('npx puppeteer browsers install chrome', { cwd: extensionPath });
-            vscode.window.showInformationMessage('Chromium setup completed successfully!');
+            vscode.window.showInformationMessage('✓ Chromium setup completed successfully! You can now convert Markdown to PDF.');
         } catch (chromiumError) {
             // Fallback to npm install puppeteer
             await execAsync('npm install puppeteer --no-save', { cwd: extensionPath });
-            vscode.window.showInformationMessage('Puppeteer setup completed. Please try PDF conversion again.');
+            vscode.window.showInformationMessage('✓ Puppeteer setup completed! Please try PDF conversion again.');
         }
     } catch (error: any) {
         vscode.window.showErrorMessage(`Setup failed: ${error.message}`);
