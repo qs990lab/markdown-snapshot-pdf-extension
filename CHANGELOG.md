@@ -10,6 +10,15 @@ All notable changes to the "Markdown Mermaid to PDF" extension will be documente
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.9] - 2026-02-08
+
+### Added
+- Table of Contents (TOC) support ([#22](https://github.com/qs990lab/markdown-snapshot-pdf-extension/issues/22))
+  - Automatically generates TOC from headings in Markdown files
+  - Supports nested heading levels (H1-H6)
+  - Clickable links to navigate to sections in PDF
+  - Note: May not be generated for complex PDFs (e.g., with Mermaid diagrams)
+
 ## [1.0.8] - 2026-01-19
 
 ### Improved

@@ -23,6 +23,7 @@ A VSCode extension that converts Markdown files (including Mermaid diagrams) to 
   - Math blocks: ````math`
   - Complex equations, matrices, integrals
 - **Extended Markdown syntax support**
+  - **Table of Contents (TOC)**: Automatically generated from headings (may not be generated for complex PDFs)
   - Footnotes: `[^1]` with proper linking and back-references
   - Highlight text: `==highlighted text==`
   - Subscript: `H~2~O` → H₂O

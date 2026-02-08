@@ -86,6 +86,7 @@ build/
 test/*.pdf
 *.pdf
 test/*.html
+test/*.js
 
 # But keep test markdown files
 !test/*.md

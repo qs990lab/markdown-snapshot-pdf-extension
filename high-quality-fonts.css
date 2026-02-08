@@ -7,7 +7,6 @@
 
 /* Import math fonts for better LaTeX rendering */
 @import url('https://fonts.googleapis.com/css2?family=STIX+Two+Math&display=swap');
-@import url('https://cdn.jsdelivr.net/npm/latin-modern-math@1.959.0/latinmodern-math.css');
 
 /* Font face declarations for offline fallback */
 @font-face {
@@ -270,25 +269,25 @@ p, span, div, blockquote, strong, em, b, i {
 
 /* Math font optimization (for KaTeX) */
 .katex {
-    font-family: "STIX Two Math", "Latin Modern Math", "KaTeX_Main", "Times New Roman", serif !important;
+    font-family: "STIX Two Math", "KaTeX_Main", "Times New Roman", serif !important;
 }
 
 .katex .mathnormal {
-    font-family: "STIX Two Math", "Latin Modern Math", "KaTeX_Main", "Times New Roman", serif !important;
+    font-family: "STIX Two Math", "KaTeX_Main", "Times New Roman", serif !important;
 }
 
 .katex .mathit {
-    font-family: "STIX Two Math", "Latin Modern Math", "KaTeX_Main", "Times New Roman", serif !important;
+    font-family: "STIX Two Math", "KaTeX_Main", "Times New Roman", serif !important;
     font-style: italic;
 }
 
 .katex .mathrm {
-    font-family: "STIX Two Math", "Latin Modern Math", "KaTeX_Main", "Times New Roman", serif !important;
+    font-family: "STIX Two Math", "KaTeX_Main", "Times New Roman", serif !important;
     font-style: normal;
 }
 
 .katex .mathbf {
-    font-family: "STIX Two Math", "Latin Modern Math", "KaTeX_Main", "Times New Roman", serif !important;
+    font-family: "STIX Two Math", "KaTeX_Main", "Times New Roman", serif !important;
     font-weight: bold;
 }
 
